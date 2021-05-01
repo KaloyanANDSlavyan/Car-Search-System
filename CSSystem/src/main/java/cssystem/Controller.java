@@ -20,7 +20,6 @@ public class Controller {
     }
 
     public void putka() {
+        BBBBBBBBBBBb
     }
-
-    AaAAAAaAAAAA
 }
