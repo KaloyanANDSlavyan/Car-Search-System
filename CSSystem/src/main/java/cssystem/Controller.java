@@ -23,6 +23,5 @@ public class Controller {
 
         // kura e vutre
     }
-    // ot new kum development
-
+    // neshto si tam
 }
