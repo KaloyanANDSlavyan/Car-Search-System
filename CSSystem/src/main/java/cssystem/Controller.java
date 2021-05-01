@@ -20,9 +20,7 @@ public class Controller {
     }
 
     public void putka() {
+
         // kura e vutre
     }
-
-    AaAAAaAAAAAA
 }
-//pedal
