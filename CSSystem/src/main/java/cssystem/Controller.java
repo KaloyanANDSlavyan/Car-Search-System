@@ -23,6 +23,6 @@ public class Controller {
 
         // kura e vutre
     }
-    //kurwa
+    //new
 
 }
