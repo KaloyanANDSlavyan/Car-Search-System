@@ -21,7 +21,7 @@ public class Controller {
 
     public void putka() {
 
-        // kursasa
+        // xdDD
     }
     //XAXAXAX
 }
