@@ -1,0 +1,18 @@
+.pane {
+    -fx-background-color: #9c1a11;
+    -fx-border-color: #5c100a;
+    -fx-border-width: 1px;
+}
+.exitButton{
+-fx-background-color: none;
+-fx-cursor: hand;
+}
+.exitButton:hover{
+-fx-text-fill: #5c100a;
+}
+.progressBar{
+-fx-accent:  #FFD700;
+-fx-text-box-border:  #FFD700;
+-fx-control-inner-background:  #5c100a;
+-fx-shadow-highlight-color:  #25274D;
+}

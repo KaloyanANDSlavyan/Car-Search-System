@@ -1,8 +1,26 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="cssystem.App"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="pane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.LoadingSceneController">
+   <children>
+      <ProgressBar fx:id="progressBar" layoutX="200.0" layoutY="228.0" prefWidth="200.0" styleClass="progressBar" />
+      <Label layoutX="210.0" layoutY="103.0" style="-fx-text-fill: #FFD700;" text="Car Search System">
+         <font>
+            <Font name="Script MT Bold" size="24.0" />
+         </font></Label>
+      <Label fx:id="test" layoutX="202.0" layoutY="145.0" text="Created by: Kaloyan, Slavyan, Radoslav">
+         <font>
+            <Font name="Brush Script MT Italic" size="14.0" />
+         </font></Label>
+      <Button fx:id="exitButton" layoutX="557.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClick" style="-fx-text-fill: #FFD700;" styleClass="exitButton" text="X">
+         <font>
+            <Font name="SansSerif Regular" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
