@@ -2,6 +2,7 @@ package cssystem;
 
 import cssystem.Controllers.LoadingSceneController;
 import cssystem.Controllers.MenuSceneController;
+import cssystem.backend.Configuration;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -58,6 +59,10 @@ public class App extends Application {
 
 
     public static void main(String[] args) {
+        // Configuring the application
+        Configuration configuration = Configuration.getInstance();
+        configuration.configure();
+        // Launching the application
         launch(args);
     }
 }
