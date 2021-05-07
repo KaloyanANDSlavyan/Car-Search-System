@@ -4,15 +4,74 @@
     -fx-border-width: 1px;
 }
 .exitButton{
--fx-background-color: none;
--fx-cursor: hand;
+    -fx-background-color: none;
+    -fx-text-fill: #FFD700;
+    -fx-cursor: hand;
 }
 .exitButton:hover{
--fx-text-fill: #5c100a;
+    -fx-text-fill: #e32012;
 }
 .progressBar{
--fx-accent:  #FFD700;
--fx-text-box-border:  #FFD700;
--fx-control-inner-background:  #5c100a;
--fx-shadow-highlight-color:  #25274D;
+    -fx-accent:  #FFD700;
+    -fx-text-box-border:  #FFD700;
+    -fx-control-inner-background:  #5c100a;
+    -fx-shadow-highlight-color:  #25274D;
+}
+
+.headerPane {
+    -fx-background-color: #5c100a;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 0 0 1 0;
+}
+
+.menuPane {
+    -fx-background-color: #5c100a;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 0 1 0 0;
+}
+
+.loginFields {
+    -fx-background-color: #5c100a;
+    -fx-border-color: #FFD700;
+    -fx-border-radius: 50px;
+    -fx-border-width: 1px;
+    -fx-background-radius: 50px;
+    -fx-prompt-text-fill: #FFD700;
+    -fx-text-fill: white;
+}
+
+.loginButton {
+    -fx-background-color: #FFD700;
+    -fx-background-radius: 50px;
+    -fx-text-fill: #5c100a;
+}
+
+.loaderPane {
+    -fx-background-color: #9c1a11;
+}
+
+.menuButtons {
+    -fx-background-color: none;
+    -fx-text-fill: #FFD700;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 0 0 1 0;
+}
+
+.menuButtons:hover {
+-fx-background-color: #e32012;
+}
+
+
+.homeButton {
+    -fx-background-color: none;
+    -fx-text-fill: #FFD700;
+}
+
+.homeButton:hover {
+    -fx-text-fill: #e32012;
+}
+
+.loginFields:fieldsCheck {
+     -fx-border-color: black;
+     -fx-border-width: 1px;
 }
