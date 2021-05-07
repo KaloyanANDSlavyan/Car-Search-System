@@ -17,9 +17,9 @@
          <font>
             <Font name="Brush Script MT Italic" size="14.0" />
          </font></Label>
-      <Button fx:id="exitButton" layoutX="557.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClick" style="-fx-text-fill: #FFD700;" styleClass="exitButton" text="X">
+      <Button fx:id="exitButton" layoutX="551.0" layoutY="8.0" mnemonicParsing="false" onAction="#onClick" style="-fx-text-fill: #FFD700;" styleClass="exitButton" text="X">
          <font>
-            <Font name="SansSerif Regular" size="14.0" />
+            <Font name="Agency FB" size="24.0" />
          </font>
       </Button>
    </children>

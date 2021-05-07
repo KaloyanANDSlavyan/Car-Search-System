@@ -1,6 +1,7 @@
 package cssystem;
 
 import cssystem.Controllers.LoadingSceneController;
+import cssystem.Controllers.LoginSceneController;
 import cssystem.Controllers.MenuSceneController;
 import cssystem.backend.Configuration;
 import javafx.application.Application;
@@ -17,21 +18,21 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXMLFiles/main.fxml"));
-        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXMLFiles/menu.fxml"));
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXMLFiles/login.fxml"));
         Parent root = (Parent) loader.load();
         Parent root2 = (Parent) loader2.load();
 
-        Stage menuStage = new Stage();
+        Stage loginStage = new Stage();
 
         Scene loadingScene = new Scene(root);
-        Scene menuScene = new Scene(root2);
+        Scene loginScene = new Scene(root2);
         primaryStage.setScene(loadingScene);
-        menuStage.setScene(menuScene);
+        loginStage.setScene(loginScene);
 
         LoadingSceneController loadingSceneController = new LoadingSceneController();
-        MenuSceneController menuSceneController = new MenuSceneController();
+
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        menuStage.initStyle(StageStyle.UNDECORATED);
+        loginStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.show();
 
         new Thread(() -> {
@@ -50,7 +51,7 @@ public class App extends Application {
                 public void run() {
                     primaryStage.close();
                     Platform.setImplicitExit(false);
-                    menuStage.show();
+                    loginStage.show();
 
                 }
             });

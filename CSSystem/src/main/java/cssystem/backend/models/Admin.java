@@ -14,6 +14,9 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long ID;
 
+    public Admin() {
+    }
+
     @Size(min = 2, message = "Username - too short")
     @Size(max = 50, message = "Username - too long")
     @Pattern.List({

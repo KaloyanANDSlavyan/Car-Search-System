@@ -1,5 +1,4 @@
-[INFO ] 2021-05-06 17:10:49.821 [Thread-2] eventLogger - Successfully finished creating the database!
-[INFO ] 2021-05-06 17:10:50.200 [Thread-2] eventLogger - Successfully connected to my-persistence-unit
-[INFO ] 2021-05-06 17:10:50.236 [Thread-2] eventLogger - Successfully finished creating factory and manager!
-[INFO ] 2021-05-06 17:10:50.236 [Thread-2] eventLogger - Successfully finished the configuration of the application!
-[INFO ] 2021-05-06 17:10:50.336 [Thread-2] eventLogger - Successfully persisted object with class name cssystem.backend.models.Admin
+[INFO ] 2021-05-07 18:51:08.623 [Thread-2] Configuration - Successfully finished creating the database!
+[INFO ] 2021-05-07 18:51:09.085 [Thread-2] Configuration - Successfully connected to my-persistence-unit
+[INFO ] 2021-05-07 18:51:09.127 [Thread-2] Configuration - Successfully finished creating factory and manager!
+[INFO ] 2021-05-07 18:51:09.127 [Thread-2] Configuration - Successfully finished the configuration of the application!
