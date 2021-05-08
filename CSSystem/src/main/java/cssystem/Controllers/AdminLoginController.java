@@ -1,5 +1,6 @@
 package cssystem.Controllers;
 
+import cssystem.backend.services.AuthenticationService;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -64,7 +65,8 @@ public class AdminLoginController {
     public void onClickLogin(ActionEvent actionEvent) {
         String username = usernameField.getText().trim();
         String password = passwordField.getText();
-        boolean success = false;  // boolean which will check if the input is correct
+        AuthenticationService authenticationService = AuthenticationService.getInstance();
+        boolean success = authenticationService.authenticate(username, password);  // boolean which will check if the input is correct
 
         if (success) {
             System.out.println("Successfully logged in!");

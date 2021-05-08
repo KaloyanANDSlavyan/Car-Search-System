@@ -31,7 +31,7 @@ public class CSSystem {
     }
 
     private void createAdmin(String username, String password){
-        DAO<Admin> adminDAO = new MainDAO<>();
+        DAO<Admin, String> adminDAO = new MainDAO<>();
         Admin admin = adminDAO.findByID(Admin.class, 1L);
 
         if(admin == null) {
