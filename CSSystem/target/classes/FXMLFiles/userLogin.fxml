@@ -11,7 +11,7 @@
          <font>
             <Font name="Agency FB" size="44.0" />
          </font></Label>
-      <Button fx:id="enterButton" layoutX="229.0" layoutY="355.0" mnemonicParsing="false" onAction="#onClickEnter" prefHeight="34.0" prefWidth="210.0" styleClass="loginButton" text="ENTER">
+      <Button fx:id="enterButton" defaultButton="true" layoutX="229.0" layoutY="355.0" mnemonicParsing="false" onAction="#onClickEnter" prefHeight="34.0" prefWidth="210.0" styleClass="loginButton" text="ENTER">
          <font>
             <Font name="Agency FB Bold" size="14.0" />
          </font></Button>

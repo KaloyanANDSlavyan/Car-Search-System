@@ -11,7 +11,7 @@
    <children>
       <TextField fx:id="usernameField" layoutX="229.0" layoutY="193.0" prefHeight="26.0" prefWidth="210.0" promptText="Username:" styleClass="loginFields" />
       <PasswordField fx:id="passwordField" layoutX="229.0" layoutY="262.0" prefHeight="26.0" prefWidth="210.0" promptText="Password:" styleClass="loginFields" />
-      <Button fx:id="loginButton" layoutX="235.0" layoutY="368.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="26.0" prefWidth="197.0" styleClass="loginButton" text="LOGIN">
+      <Button fx:id="loginButton" defaultButton="true" layoutX="235.0" layoutY="368.0" mnemonicParsing="false" onAction="#onClickLogin" prefHeight="26.0" prefWidth="197.0" styleClass="loginButton" text="LOGIN">
          <font>
             <Font name="Agency FB Bold" size="16.0" />
          </font></Button>

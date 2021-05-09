@@ -75,3 +75,35 @@
      -fx-border-color: black;
      -fx-border-width: 1px;
 }
+
+.comboBox{
+    -fx-background-color: #5c100a;
+    -fx-border-color: #FFD700;
+    -fx-prompt-text-fill: white;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 10px;
+}
+
+.comboBox .arrow{
+    -fx-background-color: #FFD700;
+}
+
+.comboBox .text-field {
+    -fx-prompt-text-fill: rgba(255, 0, 0, 0.5);
+}
+ .comboBox .text-field:focused {
+     -fx-prompt-text-fill: transparent;
+ }
+
+.textArea {
+        -fx-background-color: #5c100a;
+        -fx-border-color: #FFD700;
+        -fx-border-width: 1px;
+        -fx-prompt-text-fill: #FFD700;
+        -fx-text-fill: white;
+}
+
+.textArea .content {
+    -fx-background-color: #5c100a;
+}
