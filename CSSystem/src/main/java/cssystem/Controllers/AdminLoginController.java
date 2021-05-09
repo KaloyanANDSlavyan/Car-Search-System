@@ -16,7 +16,7 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class AdminLoginController {
+public class AdminLoginController extends AbstractController{
     @FXML
     private TextField usernameField = null;
     @FXML
@@ -33,33 +33,14 @@ public class AdminLoginController {
         passwordField.pseudoClassStateChanged(fieldsCheck_pseudoClass, state);
     }
 
-    public void loadStage(String fxmlPath) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-        Parent adminPanelRoot = null;
-
-        try {
-            adminPanelRoot = (Parent) loader.load();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load the stage.");
-        }
-
-        if (adminPanelRoot == null)
-            throw new AssertionError();
-
-        Scene adminPanelScene = new Scene(adminPanelRoot);
-        Stage adminPanelStage = new Stage();
-        adminPanelStage.setScene(adminPanelScene);
-        adminPanelStage.initStyle(StageStyle.UNDECORATED);
-
-        adminPanelStage.show();
+    @Override
+    public void closeStage(ActionEvent event, Button button) {
+        super.closeStage(event, button);
     }
 
-    public void closeStage(ActionEvent event){
-        loginButton = (Button) event.getSource();
-        Stage stage = (Stage) loginButton.getScene().getWindow();
-        stage.close();
+    @Override
+    public void loadStage(String file) {
+        super.loadStage(file);
     }
 
     public void onClickLogin(ActionEvent actionEvent) {
@@ -71,7 +52,7 @@ public class AdminLoginController {
         if (success) {
             System.out.println("Successfully logged in!");
             setPseudoClassState(false);
-            closeStage(actionEvent);
+            closeStage(actionEvent, loginButton);
             loadStage("/FXMLFiles/menu.fxml");
 
         }else {

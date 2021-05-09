@@ -5,10 +5,16 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-public class LoginSceneController {
+import java.io.IOException;
+
+public class LoginSceneController extends AbstractController{
     @FXML
     private Button homeButton = null;
     @FXML
@@ -21,29 +27,32 @@ public class LoginSceneController {
     private AnchorPane loaderPane = null;
 
     public void initialize() {
-        setLoader("homeLogin");
+        setLoader("homeLogin", loaderPane);
     }
 
-    public void setLoader(String fileName) {
-        FxmlLoader object = new FxmlLoader();
-        AnchorPane view = object.getAnchorPane(fileName);
-        loaderPane.getChildren().clear();
-        loaderPane.getChildren().add(view);
+    @Override
+    public void loadStage(String file) {
+        super.loadStage(file);
+    }
+
+    @Override
+    public void setLoader(String file, AnchorPane pane) {
+        super.setLoader(file, pane);
     }
 
     public void onClickAdmin(ActionEvent actionEvent) {
         System.out.println("You clicked " + adminButton.getText());
-        setLoader("adminLogin");
+        setLoader("adminLogin", loaderPane);
     }
 
     public void onClickUser(ActionEvent actionEvent) {
         System.out.println("You clicked " + userButton.getText());
-        setLoader("userLogin");
+        setLoader("userLogin", loaderPane);
     }
 
     public void onClickHome(ActionEvent actionEvent) {
         System.out.println("You clicked " + homeButton.getText());
-        setLoader("homeLogin");
+        setLoader("homeLogin", loaderPane);
     }
 
     public void onClickExit(ActionEvent actionEvent) {
