@@ -1,9 +1,8 @@
 package cssystem;
 
 import cssystem.Controllers.LoadingSceneController;
-import cssystem.Controllers.LoginSceneController;
-import cssystem.Controllers.MenuSceneController;
 import cssystem.backend.Configuration;
+import cssystem.backend.DataSource;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -63,6 +62,8 @@ public class App extends Application {
         // Configuring the application
         Configuration configuration = Configuration.getInstance();
         configuration.configure();
+
+        DataSource dataSource = DataSource.getInstance();
         // Launching the application
         launch(args);
     }
