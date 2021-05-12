@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class MainDAO<T, V> implements DAO<T, V> {
 
@@ -49,5 +50,17 @@ public class MainDAO<T, V> implements DAO<T, V> {
         T result = typed.getSingleResult();
 
         return result;
+    }
+
+    public List<T> selectAll(Class<T> c){
+        CriteriaBuilder cb = manager.getCriteriaBuilder();
+        CriteriaQuery<T> q = cb.createQuery(c);
+        Root<T> r = q.from(c);
+        q.select(r);
+
+        TypedQuery<T> query = manager.createQuery(q);
+        List<T> results = query.getResultList();
+
+        return results;
     }
 }
