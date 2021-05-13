@@ -7,13 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="599.0" prefWidth="776.0" styleClass="loaderPane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.SearchAutomobileController">
    <children>
-      <ComboBox fx:id="typeComboBox" layoutX="206.0" layoutY="129.0" prefWidth="150.0" promptText="Type" styleClass="comboBox" />
+      <ComboBox fx:id="typeComboBox" layoutX="206.0" layoutY="129.0" onAction="#onClickType" prefWidth="150.0" promptText="Type" styleClass="comboBox" />
       <ComboBox fx:id="modelComboBox" layoutX="206.0" layoutY="226.0" prefWidth="150.0" promptText="Model" styleClass="comboBox" />
       <ComboBox fx:id="colorComboBox" layoutX="421.0" layoutY="226.0" prefWidth="150.0" promptText="Color" styleClass="comboBox" />
-      <ComboBox fx:id="brandComboBox" layoutX="421.0" layoutY="129.0" prefWidth="150.0" promptText="Brand" styleClass="comboBox" />
+      <ComboBox fx:id="brandComboBox" layoutX="421.0" layoutY="129.0" onAction="#onClickBrand" prefWidth="150.0" promptText="Brand" styleClass="comboBox" />
       <TextField fx:id="maxHorsepowerField" layoutX="420.0" layoutY="323.0" promptText="Max horsepower:" styleClass="loginFields" />
       <TextField fx:id="maxPriceField" layoutX="420.0" layoutY="373.0" promptText="Max price:" styleClass="loginFields" />
       <TextField fx:id="minPriceField" layoutX="205.0" layoutY="373.0" promptText="Min price:" styleClass="loginFields" />

@@ -36,6 +36,7 @@ public class AddAutomobileController {
     private TextField kilometersField = null;
     @FXML
     private TextArea descriptionArea = null;
+    private boolean stateComboBox = false;
 
 
     public void initialize(){   // executes when scene loads
@@ -48,16 +49,54 @@ public class AddAutomobileController {
 
         for(int i = 0; i < typeList.size(); i++) {
             typeNames[i] = typeList.get(i).getName();
-            System.out.println(typeNames[i]);
+            typeComboBoxItems.add(typeNames[i]);
         }
 
         for(int i = 0; i < colorList.size(); i++) {
             colorNames[i] = colorList.get(i).getName();
-            System.out.println(colorNames[i]);
+            colorComboBoxItems.add(colorNames[i]);
+        }
+
+        typeComboBox.setItems(typeComboBoxItems);
+        colorComboBox.setItems(colorComboBoxItems);
+
+        isComboBoxEmpty(typeComboBox, brandComboBox, brandComboBoxItems);
+        isComboBoxEmpty(brandComboBox, modelComboBox, modelComboBoxItems);
+    }
+
+    public void isComboBoxEmpty(ComboBox<String> comboBox1, ComboBox<String> comboBox2, ObservableList<String> itemsList){
+        stateComboBox = comboBox1.getSelectionModel().isEmpty();    // checks if item is selected in ComboBox
+
+        if (stateComboBox) {    // if item is not selected
+            comboBox2.setDisable(true); // second ComboBox is disabled
+        }else{
+            String selectedType = comboBox1.getValue(); // assigns value of selected item in ComboBox to String
+            System.out.println(selectedType);
+            // zaqvka
+            comboBox2.setItems(itemsList);
+            comboBox2.setDisable(false);
         }
     }
 
     public void onClickAddAuto(ActionEvent event) {
+        System.out.println("button add clicked");
+        String typeSelected = typeComboBox.getValue();
+        String brandSelected = brandComboBox.getValue();
+        String modelSelected = modelComboBox.getValue();
+        String colorSelected = colorComboBox.getValue();
+        String ownerName = nameField.getText().trim();
+        String phone = phoneField.getText().trim();
+        String kilometers = kilometersField.getText().trim();
+        String horsepower = horsepowerField.getText().trim();
+        String description = descriptionArea.getText().trim();
 
+    }
+
+    public void onClickType(ActionEvent event) {    // on item click in typeComboBox event handler
+        isComboBoxEmpty(typeComboBox, brandComboBox, brandComboBoxItems);
+    }
+
+    public void onClickBrand(ActionEvent event) {  // on item click in brandComboBox event handler
+        isComboBoxEmpty(brandComboBox, modelComboBox, modelComboBoxItems);
     }
 }

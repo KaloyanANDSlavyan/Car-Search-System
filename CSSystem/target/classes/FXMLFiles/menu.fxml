@@ -45,7 +45,7 @@
                   <Font name="Agency FB" size="19.0" />
                </font>
             </Button>
-            <Button fx:id="logoutButton" layoutX="784.0" layoutY="13.0" mnemonicParsing="false" onAction="#onClickLogout" styleClass="exitButton" text="Logout" />
+            <Button fx:id="logoutButton" layoutX="813.0" layoutY="8.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="36.0" prefWidth="33.0" styleClass="logoutButton" />
          </children>
       </Pane>
       <AnchorPane fx:id="loaderPane" layoutX="126.0" layoutY="51.0" prefHeight="599.0" prefWidth="776.0" styleClass="loaderPane" />

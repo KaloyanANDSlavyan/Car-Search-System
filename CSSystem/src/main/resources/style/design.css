@@ -58,7 +58,7 @@
 }
 
 .menuButtons:hover {
--fx-background-color: #e32012;
+    -fx-background-color: #e32012;
 }
 
 
@@ -76,25 +76,42 @@
      -fx-border-width: 1px;
 }
 
+.logoutButton {
+    -fx-background-color: none;
+    -fx-background-image: url("../img/logout.png");
+    -fx-background-size: 35px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 90%;
+    -fx-cursor: hand;
+}
+
 .comboBox{
     -fx-background-color: #5c100a;
     -fx-border-color: #FFD700;
-    -fx-prompt-text-fill: white;
     -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
     -fx-border-width: 1.5px;
+    -fx-background-radius: 10px;
+
+}
+
+.comboBox .text-field {
+     -fx-background-color: #5c100a;
+}
+.comboBox .arrow-button {
+    -fx-background-color: #5c100a;
     -fx-background-radius: 10px;
 }
 
 .comboBox .arrow{
-    -fx-background-color: #FFD700;
+     -fx-background-color: #FFD700;
 }
 
-.comboBox .text-field {
-    -fx-prompt-text-fill: rgba(255, 0, 0, 0.5);
+.combo-box .list-cell {
+    -fx-background-color: #5c100a;
+    -fx-text-fill: #FFD700;
+    -fx-background-radius: 10px;
 }
- .comboBox .text-field:focused {
-     -fx-prompt-text-fill: transparent;
- }
 
 .textArea {
         -fx-background-color: #5c100a;
