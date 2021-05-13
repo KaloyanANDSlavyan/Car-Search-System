@@ -64,4 +64,5 @@ public abstract class AbstractController implements ControllerInterface{
         pane.getChildren().add(view);
 
     }
+
 }
