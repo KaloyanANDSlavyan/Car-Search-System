@@ -50,6 +50,13 @@
     -fx-background-color: #9c1a11;
 }
 
+.consVbox {
+    -fx-background-color: #5c100a;
+    -fx-text-fill: #FFD700;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 1;
+}
+
 .menuButtons {
     -fx-background-color: none;
     -fx-text-fill: #FFD700;

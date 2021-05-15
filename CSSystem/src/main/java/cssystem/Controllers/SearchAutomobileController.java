@@ -17,19 +17,8 @@ import javafx.scene.control.TextField;
 
 import java.util.*;
 
-public class SearchAutomobileController {
-    @FXML
-    private ComboBox<String> typeComboBox = new ComboBox<String>();
-    private ObservableList<String> typeComboBoxItems = FXCollections.observableArrayList();
-    @FXML
-    private ComboBox<String> brandComboBox = new ComboBox<String>();
-    private ObservableList<String>  brandComboBoxItems = FXCollections.observableArrayList();
-    @FXML
-    private ComboBox<String> modelComboBox = new ComboBox<String>();
-    private ObservableList<String>  modelComboBoxItems = FXCollections.observableArrayList();
-    @FXML
-    private ComboBox<String> colorComboBox = new ComboBox<String>();
-    private ObservableList<String>  colorComboBoxItems = FXCollections.observableArrayList();
+public class SearchAutomobileController extends AbstractComboBoxController{
+
     @FXML
     private TextField minHorsepowerField = null;
     @FXML
@@ -44,80 +33,32 @@ public class SearchAutomobileController {
     private TextField maxKilometersField = null;
     @FXML
     private Button searchButton = null;
-    private boolean stateComboBox;
 
-    CSSystem csSystem = CSSystem.getInstance();
     DAO<Auto, String, Integer> autoDAO = new MainDAO<>();
     DAO<Auto, String, String> autoStringStringDAO = new MainDAO<>();
 
     public void initialize() {
-        CSSystem csSystem = CSSystem.getInstance();
-        List<Type> typeList = csSystem.getAllTypes();
-        List<Color> colorList = csSystem.getAllColors();
-
-        String[] typeNames = new String[typeList.size()];
-        String[] colorNames = new String[colorList.size()];
-
-        isComboBoxEmpty("typeComboBox");
-        isComboBoxEmpty("brandComboBox");
-
-        for(int i = 0; i < typeList.size(); i++) {
-            typeNames[i] = typeList.get(i).getName();
-            typeComboBoxItems.add(typeNames[i]);
-        }
-
-        for(int i = 0; i < colorList.size(); i++) {
-            colorNames[i] = colorList.get(i).getName();
-            System.out.println(colorNames[i]);
-            colorComboBoxItems.add(colorNames[i]);
-        }
-
-        typeComboBox.setItems(typeComboBoxItems);
-        colorComboBox.setItems(colorComboBoxItems);
+        initLoader();
     }
 
-    public void isComboBoxEmpty(String indicator){
-
-        ComboBox<String> comboBox1;
-        ComboBox<String> comboBox2;
-
-        if(indicator.equals("typeComboBox")){
-            comboBox1 = typeComboBox;
-            comboBox2 = brandComboBox;
-        } else {
-            comboBox1 = brandComboBox;
-            comboBox2 = modelComboBox;
-        }
-
-        stateComboBox = comboBox1.getSelectionModel().isEmpty();    // checks if item is selected in ComboBox
-
-        if (stateComboBox) {    // if item is not selected
-            comboBox2.setDisable(true); // second ComboBox is disabled
-        }else{
-            if(indicator.equals("typeComboBox")) {
-                String selectedType = comboBox1.getValue(); // assigns value of selected item in ComboBox to String
-                Set<String> brandNameSet = csSystem.findBrandsByType(selectedType);
-                fillBrandComboBox(brandNameSet);
-            }
-            else {
-                String selectedType = typeComboBox.getValue();
-                String selectedBrand = comboBox1.getValue();
-                List<String> modelStringList = csSystem.findModelsByTypeBrand(selectedType, selectedBrand);
-                fillModelComboBox(modelStringList);
-            }
-        }
+    @Override
+    public void initLoader() {
+        super.initLoader();
     }
 
-    public void fillBrandComboBox(Set<String> brandNameSet){
-        brandComboBoxItems.setAll(brandNameSet);
-        brandComboBox.setItems(brandComboBoxItems);
-        brandComboBox.setDisable(false);
+    @Override
+    public void fillBrandComboBox(Set<String> brandNameSet) {
+        super.fillBrandComboBox(brandNameSet);
     }
 
-    public void fillModelComboBox(List<String> modelNameSet){
-        modelComboBoxItems.setAll(modelNameSet);
-        modelComboBox.setItems(modelComboBoxItems);
-        modelComboBox.setDisable(false);
+    @Override
+    public void fillModelComboBox(List<String> modelNameSet) {
+        super.fillModelComboBox(modelNameSet);
+    }
+
+    @Override
+    public void isComboBoxEmpty(String indicator) {
+        super.isComboBoxEmpty(indicator);
     }
 
     public void onClickSearch(ActionEvent event) {
