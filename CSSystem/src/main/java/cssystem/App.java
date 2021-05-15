@@ -35,7 +35,7 @@ public class App extends Application {
         primaryStage.show();
 
         new Thread(() -> {
-            for (int i = 0; i <= 10; i++) {
+            for (int i = 0; i <= 2; i++) {
                 try {
                     Thread.sleep(750);
                 } catch (InterruptedException e) {
