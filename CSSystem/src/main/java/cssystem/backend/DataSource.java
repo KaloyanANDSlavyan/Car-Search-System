@@ -33,6 +33,7 @@ public class DataSource {
 
         description.get("Truck").put("Daf", new HashSet<>());
         description.get("Truck").put("Scania", new HashSet<>());
+        description.get("Truck").put("Nissan", new HashSet<>());
 
         // Adding models to every brand
         //Cars
@@ -64,6 +65,9 @@ public class DataSource {
 
         list = Arrays.asList("124", "112");
         description.get("Truck").get("Scania").addAll(list);
+
+        list = Arrays.asList("Atleon", "Kabstar");
+        description.get("Truck").get("Nissan").addAll(list);
     }
 
     public static DataSource getInstance(){
