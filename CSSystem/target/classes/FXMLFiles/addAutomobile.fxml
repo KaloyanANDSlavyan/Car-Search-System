@@ -22,7 +22,7 @@
             <Font name="Agency FB" size="18.0" />
          </font></Button>
       <TextArea fx:id="descriptionArea" layoutX="209.0" layoutY="375.0" prefHeight="132.0" prefWidth="357.0" promptText="Description about the automobile:" styleClass="textArea" />
-      <TextField layoutX="312.0" layoutY="328.0" promptText="Price:" styleClass="loginFields" />
+      <TextField fx:id="priceField" layoutX="312.0" layoutY="328.0" promptText="Price:" styleClass="loginFields" />
       <TextField fx:id="phoneField" layoutX="406.0" layoutY="220.0" promptText="Phone number:" styleClass="loginFields" />
       <Label layoutX="262.0" layoutY="14.0" style="-fx-text-fill: #FFD700;" text="ADD AUTOMOBILE" textFill="GOLD">
          <font>
