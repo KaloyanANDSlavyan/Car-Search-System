@@ -24,7 +24,7 @@ public class AuthenticationService {
 //        CryptoService cryptoService = CryptoService.getInstance();
 //        password = cryptoService.encrypt(password, cryptoService.getKey(), cryptoService.getCipher());
         try {
-            DAO<Admin, String> dao = new MainDAO<>();
+            DAO<Admin, String, Long> dao = new MainDAO<>();
             Admin admin = dao.findBy2Values(Admin.class, "username", "password", username, password);
             return admin.getUsername().equals(username) && admin.getPassword().equals(password);
             // can be NoResultException

@@ -1,7 +1,11 @@
 package cssystem.Controllers;
 
 import cssystem.backend.CSSystem;
+import cssystem.backend.dao.DAO;
+import cssystem.backend.dao.MainDAO;
+import cssystem.backend.models.Auto;
 import cssystem.backend.models.Color;
+import cssystem.backend.models.Description;
 import cssystem.backend.models.Type;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,21 +15,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-import java.util.List;
+import java.util.*;
 
-public class SearchAutomobileController {
-    @FXML
-    private ComboBox<String> typeComboBox = new ComboBox<String>();
-    private ObservableList<String> typeComboBoxItems = FXCollections.observableArrayList();
-    @FXML
-    private ComboBox<String> brandComboBox = new ComboBox<String>();
-    private ObservableList<String>  brandComboBoxItems = FXCollections.observableArrayList();
-    @FXML
-    private ComboBox<String> modelComboBox = new ComboBox<String>();
-    private ObservableList<String>  modelComboBoxItems = FXCollections.observableArrayList();
-    @FXML
-    private ComboBox<String> colorComboBox = new ComboBox<String>();
-    private ObservableList<String>  colorComboBoxItems = FXCollections.observableArrayList();
+public class SearchAutomobileController extends AbstractComboBoxController{
+
     @FXML
     private TextField minHorsepowerField = null;
     @FXML
@@ -40,46 +33,32 @@ public class SearchAutomobileController {
     private TextField maxKilometersField = null;
     @FXML
     private Button searchButton = null;
-    private boolean stateComboBox;
+
+    DAO<Auto, String, Integer> autoDAO = new MainDAO<>();
+    DAO<Auto, String, String> autoStringStringDAO = new MainDAO<>();
 
     public void initialize() {
-        CSSystem csSystem = CSSystem.getInstance();
-        List<Type> typeList = csSystem.getAllTypes();
-        List<Color> colorList = csSystem.getAllColors();
-
-        String[] typeNames = new String[typeList.size()];
-        String[] colorNames = new String[colorList.size()];
-
-        isComboBoxEmpty(typeComboBox, brandComboBox, brandComboBoxItems);
-        isComboBoxEmpty(brandComboBox, modelComboBox, modelComboBoxItems);
-
-        for(int i = 0; i < typeList.size(); i++) {
-            typeNames[i] = typeList.get(i).getName();
-            typeComboBoxItems.add(typeNames[i]);
-        }
-
-        for(int i = 0; i < colorList.size(); i++) {
-            colorNames[i] = colorList.get(i).getName();
-            System.out.println(colorNames[i]);
-            colorComboBoxItems.add(colorNames[i]);
-        }
-
-        typeComboBox.setItems(typeComboBoxItems);
-        colorComboBox.setItems(colorComboBoxItems);
+        initLoader();
     }
 
-    public void isComboBoxEmpty(ComboBox<String> comboBox1, ComboBox<String> comboBox2, ObservableList<String> itemsList){
-        stateComboBox = comboBox1.getSelectionModel().isEmpty();    // checks if item is selected in ComboBox
+    @Override
+    public void initLoader() {
+        super.initLoader();
+    }
 
-        if (stateComboBox) {    // if item is not selected
-            comboBox2.setDisable(true); // second ComboBox is disabled
-        }else{
-            String selectedType = comboBox1.getValue(); // assigns value of selected item in ComboBox to String
-            System.out.println(selectedType);
-            // zaqvka
-            comboBox2.setItems(itemsList);
-            comboBox2.setDisable(false);
-        }
+    @Override
+    public void fillBrandComboBox(Set<String> brandNameSet) {
+        super.fillBrandComboBox(brandNameSet);
+    }
+
+    @Override
+    public void fillModelComboBox(List<String> modelNameSet) {
+        super.fillModelComboBox(modelNameSet);
+    }
+
+    @Override
+    public void isComboBoxEmpty(String indicator) {
+        super.isComboBoxEmpty(indicator);
     }
 
     public void onClickSearch(ActionEvent event) {
@@ -87,20 +66,65 @@ public class SearchAutomobileController {
         String brandSelected = brandComboBox.getValue();
         String modelSelected = modelComboBox.getValue();
         String colorSelected = colorComboBox.getValue();
-        String minHorsepower = minHorsepowerField.getText().trim();
-        String maxHorsepower = maxHorsepowerField.getText().trim();
+//        String minHorsepower = minHorsepowerField.getText().trim();
+//        String maxHorsepower = maxHorsepowerField.getText().trim();
+//        String minPrice = minPriceField.getText().trim();
+//        String maxPrice = maxPriceField.getText().trim();
+//        String minKilometers = minKilometersField.getText().trim();
+//        String maxKilometers = maxKilometersField.getText().trim();
+
+        Integer minHorsepower = Integer.parseInt(minHorsepowerField.getText().trim());
+        Integer maxHorsepower = Integer.parseInt(maxHorsepowerField.getText().trim());
         String minPrice = minPriceField.getText().trim();
         String maxPrice = maxPriceField.getText().trim();
-        String minKilometers = minKilometersField.getText().trim();
-        String maxKilometers = maxKilometersField.getText().trim();
+        Integer minKilometers = Integer.parseInt(minKilometersField.getText().trim());
+        Integer maxKilometers = Integer.parseInt(maxKilometersField.getText().trim());
 
-    }
+//        Map<String, String> mapString = new HashMap();
+//
+//        if(typeSelected != null && !typeSelected.isEmpty())
+//            mapString.put("object1", typeSelected);
+//        if(brandSelected != null && !brandSelected.isEmpty())
+//            mapString.put("object2", brandSelected);
+//        if(modelSelected != null && !modelSelected.isEmpty())
+//            mapString.put("object3", modelSelected);
+//        if(colorSelected != null && !colorSelected.isEmpty())
+//            mapString.put("object4", colorSelected);
+
+        // All in the same time
+//        List<Auto> autos = autoDAO.selectAll(Auto.class);
+//        List<Auto> foundAutos = new ArrayList<>();
+//
+//        for(int i = 0; i < autos.size(); i++){
+//            String type = autos.get(i).getDescription().getType().getName();
+//            String brand = autos.get(i).getDescription().getBrand().getName();
+//            String model = autos.get(i).getDescription().getModel();
+//            String color = autos.get(i).getColor().getName();
+//            int kilometres = autos.get(i).getKilometres();
+//            int horsePower = autos.get(i).getHorsePower();
+//
+//            if(type.equals(typeSelected) && brand.equals(brandSelected) &&
+//                    model.equals(modelSelected) && color.equals(colorSelected) &&
+//                    kilometres > minKilometers && kilometres < maxKilometers &&
+//                    horsePower > minHorsepower && horsePower < maxHorsepower)
+//                foundAutos.add(autos.get(i));
+//        }
+//        for(int i = 0; i < foundAutos.size(); i++){
+//            System.out.println(foundAutos.get(i).getID());
+//        }
+        // All in the same time
+
+        }
+
 
     public void onClickType(ActionEvent event) {
-        isComboBoxEmpty(typeComboBox, brandComboBox, brandComboBoxItems);
+        brandComboBoxItems.clear();
+        modelComboBoxItems.clear();
+        isComboBoxEmpty("typeComboBox");
     }
 
     public void onClickBrand(ActionEvent event) {
-        isComboBoxEmpty(brandComboBox, modelComboBox, modelComboBoxItems);
+        modelComboBoxItems.clear();
+        isComboBoxEmpty("brandComboBox");
     }
 }

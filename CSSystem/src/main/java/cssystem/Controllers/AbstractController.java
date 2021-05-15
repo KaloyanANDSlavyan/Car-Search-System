@@ -1,6 +1,11 @@
 package cssystem.Controllers;
 
 import cssystem.FxmlLoader;
+import cssystem.backend.dao.DAO;
+import cssystem.backend.dao.MainDAO;
+import cssystem.backend.models.Color;
+import cssystem.backend.models.Description;
+import cssystem.backend.models.Type;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

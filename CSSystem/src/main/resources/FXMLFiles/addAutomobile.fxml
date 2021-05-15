@@ -2,10 +2,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="599.0" prefWidth="776.0" styleClass="loaderPane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.AddAutomobileController">
@@ -17,17 +19,21 @@
       <TextField fx:id="nameField" layoutX="218.0" layoutY="220.0" promptText="Owner name:" styleClass="loginFields" />
       <TextField fx:id="horsepowerField" layoutX="406.0" layoutY="277.0" promptText="Horsepower:" styleClass="loginFields" />
       <TextField fx:id="kilometersField" layoutX="218.0" layoutY="277.0" promptText="Kilometers:" styleClass="loginFields" />
-      <Button fx:id="addAutoButton" layoutX="311.0" layoutY="551.0" mnemonicParsing="false" onAction="#onClickAddAuto" prefHeight="30.0" prefWidth="153.0" styleClass="loginButton" text="Add">
+      <Button fx:id="addAutoButton" layoutX="311.0" layoutY="558.0" mnemonicParsing="false" onAction="#onClickAddAuto" prefHeight="30.0" prefWidth="153.0" styleClass="loginButton" text="Add">
          <font>
             <Font name="Agency FB" size="18.0" />
          </font></Button>
       <TextArea fx:id="descriptionArea" layoutX="209.0" layoutY="375.0" prefHeight="132.0" prefWidth="357.0" promptText="Description about the automobile:" styleClass="textArea" />
-      <TextField layoutX="312.0" layoutY="328.0" promptText="Price:" styleClass="loginFields" />
+      <TextField fx:id="priceField" layoutX="312.0" layoutY="328.0" promptText="Price:" styleClass="loginFields" />
       <TextField fx:id="phoneField" layoutX="406.0" layoutY="220.0" promptText="Phone number:" styleClass="loginFields" />
       <Label layoutX="262.0" layoutY="14.0" style="-fx-text-fill: #FFD700;" text="ADD AUTOMOBILE" textFill="GOLD">
          <font>
             <Font name="Agency FB Bold" size="43.0" />
          </font>
       </Label>
+      <Label fx:id="failureLabel" layoutX="331.0" layoutY="525.0" text="Please fill all fields!" textAlignment="CENTER" textFill="#fbff00" visible="false" />
+      <VBox fx:id="consVbox" layoutX="596.0" layoutY="259.0" prefHeight="138.0" prefWidth="143.0" styleClass="consVbox" visible="false" />
+      <Hyperlink layoutX="596.0" layoutY="246.0" />
+      <Label fx:id="successLabel" layoutX="252.0" layoutY="525.0" text="Successfully added automobile to the system." textAlignment="CENTER" textFill="#fbff00" visible="false" />
    </children>
 </AnchorPane>
