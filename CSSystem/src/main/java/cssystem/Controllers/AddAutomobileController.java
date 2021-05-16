@@ -4,6 +4,7 @@ import cssystem.backend.CSSystem;
 import cssystem.backend.dao.DAO;
 import cssystem.backend.dao.MainDAO;
 import cssystem.backend.models.*;
+import cssystem.backend.others.DataRetriever;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -103,26 +104,11 @@ public class AddAutomobileController extends AbstractComboBoxController{
 
         }else {
             System.out.println("button add clicked");
-            String typeSelected = typeComboBox.getValue();
-            String brandSelected = brandComboBox.getValue();
-            String modelSelected = modelComboBox.getValue();
-            String colorSelected = colorComboBox.getValue();
-            String ownerName = nameField.getText().trim();
-            String phone = phoneField.getText().trim();
-            double price = Double.parseDouble(priceField.getText().trim());
-            int kilometers = Integer.parseInt(kilometersField.getText().trim());
-            int horsepower = Integer.parseInt(horsepowerField.getText().trim());
-            String description = descriptionArea.getText().trim();
 
-            info.put("type", typeSelected);
-            info.put("brand", brandSelected);
-            info.put("model", modelSelected);
-            info.put("color", colorSelected);
-            info.put("ownerName", ownerName);
-            info.put("phone", phone);
-            info.put("description", description);
+            DataRetriever dataRetriever = DataRetriever.getInstance();
+            dataRetriever.gatherDataFromController(this, info);
 
-            csSystem.saveAutoInDB(info, kilometers, horsepower, price);
+            csSystem.saveAutoInDB(info);
             successLabel.setVisible(true);
         }
 
@@ -139,4 +125,27 @@ public class AddAutomobileController extends AbstractComboBoxController{
         isComboBoxEmpty("brandComboBox");
     }
 
+    public TextField getNameField() {
+        return nameField;
+    }
+
+    public TextField getPhoneField() {
+        return phoneField;
+    }
+
+    public TextField getHorsepowerField() {
+        return horsepowerField;
+    }
+
+    public TextField getKilometersField() {
+        return kilometersField;
+    }
+
+    public TextField getPriceField() {
+        return priceField;
+    }
+
+    public TextArea getDescriptionArea() {
+        return descriptionArea;
+    }
 }

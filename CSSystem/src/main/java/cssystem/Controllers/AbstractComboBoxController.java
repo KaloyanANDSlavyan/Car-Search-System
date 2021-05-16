@@ -111,4 +111,20 @@ public abstract class AbstractComboBoxController implements ComboBoxControllerIn
             }
         }
     }
+
+    public ComboBox<String> getTypeComboBox() {
+        return typeComboBox;
+    }
+
+    public ComboBox<String> getColorComboBox() {
+        return colorComboBox;
+    }
+
+    public ComboBox<String> getBrandComboBox() {
+        return brandComboBox;
+    }
+
+    public ComboBox<String> getModelComboBox() {
+        return modelComboBox;
+    }
 }

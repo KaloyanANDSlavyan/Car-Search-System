@@ -7,6 +7,7 @@ import cssystem.backend.models.Auto;
 import cssystem.backend.models.Color;
 import cssystem.backend.models.Description;
 import cssystem.backend.models.Type;
+import cssystem.backend.others.DataRetriever;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,8 +35,9 @@ public class SearchAutomobileController extends AbstractComboBoxController{
     @FXML
     private Button searchButton = null;
 
-    DAO<Auto, String, Integer> autoDAO = new MainDAO<>();
-    DAO<Auto, String, String> autoStringStringDAO = new MainDAO<>();
+    private DAO<Auto, String, Integer> autoDAO = new MainDAO<>();
+    private DAO<Auto, String, String> autoStringStringDAO = new MainDAO<>();
+    private Map<String, String> elements = new HashMap<>();
 
     public void initialize() {
         initLoader();
@@ -62,59 +64,29 @@ public class SearchAutomobileController extends AbstractComboBoxController{
     }
 
     public void onClickSearch(ActionEvent event) {
-        String typeSelected = typeComboBox.getValue();
-        String brandSelected = brandComboBox.getValue();
-        String modelSelected = modelComboBox.getValue();
-        String colorSelected = colorComboBox.getValue();
-//        String minHorsepower = minHorsepowerField.getText().trim();
-//        String maxHorsepower = maxHorsepowerField.getText().trim();
-//        String minPrice = minPriceField.getText().trim();
-//        String maxPrice = maxPriceField.getText().trim();
-//        String minKilometers = minKilometersField.getText().trim();
-//        String maxKilometers = maxKilometersField.getText().trim();
 
-        Integer minHorsepower = Integer.parseInt(minHorsepowerField.getText().trim());
-        Integer maxHorsepower = Integer.parseInt(maxHorsepowerField.getText().trim());
-        String minPrice = minPriceField.getText().trim();
-        String maxPrice = maxPriceField.getText().trim();
-        Integer minKilometers = Integer.parseInt(minKilometersField.getText().trim());
-        Integer maxKilometers = Integer.parseInt(maxKilometersField.getText().trim());
+        DataRetriever dataRetriever = DataRetriever.getInstance();
+        dataRetriever.gatherDataFromController(this, elements);
 
-//        Map<String, String> mapString = new HashMap();
-//
-//        if(typeSelected != null && !typeSelected.isEmpty())
-//            mapString.put("object1", typeSelected);
-//        if(brandSelected != null && !brandSelected.isEmpty())
-//            mapString.put("object2", brandSelected);
-//        if(modelSelected != null && !modelSelected.isEmpty())
-//            mapString.put("object3", modelSelected);
-//        if(colorSelected != null && !colorSelected.isEmpty())
-//            mapString.put("object4", colorSelected);
+        List<Auto> foundAutos = csSystem.searchAutos(elements);
 
-        // All in the same time
-//        List<Auto> autos = autoDAO.selectAll(Auto.class);
-//        List<Auto> foundAutos = new ArrayList<>();
-//
-//        for(int i = 0; i < autos.size(); i++){
-//            String type = autos.get(i).getDescription().getType().getName();
-//            String brand = autos.get(i).getDescription().getBrand().getName();
-//            String model = autos.get(i).getDescription().getModel();
-//            String color = autos.get(i).getColor().getName();
-//            int kilometres = autos.get(i).getKilometres();
-//            int horsePower = autos.get(i).getHorsePower();
-//
-//            if(type.equals(typeSelected) && brand.equals(brandSelected) &&
-//                    model.equals(modelSelected) && color.equals(colorSelected) &&
-//                    kilometres > minKilometers && kilometres < maxKilometers &&
-//                    horsePower > minHorsepower && horsePower < maxHorsepower)
-//                foundAutos.add(autos.get(i));
-//        }
-//        for(int i = 0; i < foundAutos.size(); i++){
-//            System.out.println(foundAutos.get(i).getID());
-//        }
-        // All in the same time
+        for(Auto auto: foundAutos) {
+            Long id = auto.getID();
+            String type = auto.getDescription().getType().getName();
+            String brand = auto.getDescription().getBrand().getName();
+            String model = auto.getDescription().getModel();
+            String color = auto.getColor().getName();
+            int horsePower = auto.getHorsePower();
+            double price = auto.getPrice();
+            int kilometres = auto.getKilometres();
 
+            System.out.println(id + " | " + type + " | " + brand +
+                    " | " + model + " | " + color + " | " + "Power: " + horsePower +
+                    " | " + "Price: " + price + " | " + "Kilo: " + kilometres);
         }
+
+//        dataRetriever.addToList(foundAutos);
+    }
 
 
     public void onClickType(ActionEvent event) {
@@ -126,5 +98,29 @@ public class SearchAutomobileController extends AbstractComboBoxController{
     public void onClickBrand(ActionEvent event) {
         modelComboBoxItems.clear();
         isComboBoxEmpty("brandComboBox");
+    }
+
+    public TextField getMinHorsepowerField() {
+        return minHorsepowerField;
+    }
+
+    public TextField getMaxHorsepowerField() {
+        return maxHorsepowerField;
+    }
+
+    public TextField getMinPriceField() {
+        return minPriceField;
+    }
+
+    public TextField getMaxPriceField() {
+        return maxPriceField;
+    }
+
+    public TextField getMinKilometersField() {
+        return minKilometersField;
+    }
+
+    public TextField getMaxKilometersField() {
+        return maxKilometersField;
     }
 }

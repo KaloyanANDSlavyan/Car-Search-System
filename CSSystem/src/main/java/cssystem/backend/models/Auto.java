@@ -1,6 +1,11 @@
 package cssystem.backend.models;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -61,5 +66,9 @@ public class Auto implements Serializable {
 
     public String getDetails() {
         return details;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }
