@@ -1,5 +1,4 @@
-[INFO ] 2021-05-15 16:36:06.752 [Thread-2] Configuration - Successfully finished creating the database!
-[INFO ] 2021-05-15 16:36:07.299 [Thread-2] Configuration - Successfully connected to my-persistence-unit
-[INFO ] 2021-05-15 16:36:07.342 [Thread-2] Configuration - Successfully finished creating factory and manager!
-[INFO ] 2021-05-15 16:36:07.342 [Thread-2] Configuration - Successfully finished the configuration of the application!
-[INFO ] 2021-05-15 16:39:30.630 [JavaFX Application Thread] MainDAO - Successfully persisted object with class name Auto
+[INFO ] 2021-05-15 16:48:57.648 [Thread-2] Configuration - Successfully finished creating the database!
+[INFO ] 2021-05-15 16:48:58.224 [Thread-2] Configuration - Successfully connected to my-persistence-unit
+[INFO ] 2021-05-15 16:48:58.271 [Thread-2] Configuration - Successfully finished creating factory and manager!
+[INFO ] 2021-05-15 16:48:58.271 [Thread-2] Configuration - Successfully finished the configuration of the application!
