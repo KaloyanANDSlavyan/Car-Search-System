@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 [INFO ] 2021-05-15 16:48:57.648 [Thread-2] Configuration - Successfully finished creating the database!
 [INFO ] 2021-05-15 16:48:58.224 [Thread-2] Configuration - Successfully connected to my-persistence-unit
 [INFO ] 2021-05-15 16:48:58.271 [Thread-2] Configuration - Successfully finished creating factory and manager!
 [INFO ] 2021-05-15 16:48:58.271 [Thread-2] Configuration - Successfully finished the configuration of the application!
+=======
+[INFO ] 2021-05-16 14:34:08.419 [Thread-2] Configuration - Successfully finished creating the database!
+[INFO ] 2021-05-16 14:34:08.937 [Thread-2] Configuration - Successfully connected to my-persistence-unit
+[INFO ] 2021-05-16 14:34:08.979 [Thread-2] Configuration - Successfully finished creating factory and manager!
+[INFO ] 2021-05-16 14:34:08.980 [Thread-2] Configuration - Successfully finished the configuration of the application!
+>>>>>>> f912980a66326f986f556ae0fe746db9f57e67f9
