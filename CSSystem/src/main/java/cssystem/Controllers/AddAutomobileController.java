@@ -5,8 +5,6 @@ import cssystem.backend.dao.DAO;
 import cssystem.backend.dao.MainDAO;
 import cssystem.backend.models.*;
 import cssystem.backend.others.DataRetriever;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -14,7 +12,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.*;
 
-public class AddAutomobileController extends AbstractComboBoxController{
+public class AddAutomobileController extends AbstractController {
     @FXML
     private TextField nameField = null;
     @FXML
@@ -33,6 +31,7 @@ public class AddAutomobileController extends AbstractComboBoxController{
     private Label failureLabel = null;
     @FXML
     private Label successLabel = null;
+    private CSSystem csSystem = CSSystem.getInstance();
 
     private DAO<Description, Long, String> descriptionDAO = new MainDAO<>();
     private DAO<Auto, String, Long> autoDAO = new MainDAO<>();

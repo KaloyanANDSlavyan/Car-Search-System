@@ -1,12 +1,9 @@
 package cssystem.backend.others;
 
 import cssystem.Controllers.AddAutomobileController;
-import cssystem.Controllers.ComboBoxControllerInterface;
+import cssystem.Controllers.ControllerInterface;
 import cssystem.Controllers.SearchAutomobileController;
-import cssystem.backend.models.Auto;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class DataRetriever {
@@ -28,7 +25,7 @@ public class DataRetriever {
 //        return autoList;
 //    }
 
-    public void gatherDataFromController(ComboBoxControllerInterface controller, Map<String, String> elements){
+    public void gatherDataFromController(ControllerInterface controller, Map<String, String> elements){
 
         elements.put("type", controller.getTypeComboBox().getValue());
         elements.put("brand", controller.getBrandComboBox().getValue());

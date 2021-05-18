@@ -30,6 +30,7 @@ public class Auto implements Serializable {
     private int horsePower;
     private double price;
     private String details;
+    private String imgSrc;
 
     public Auto() {
     }
@@ -70,5 +71,17 @@ public class Auto implements Serializable {
 
     public double getPrice() {
         return price;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 }

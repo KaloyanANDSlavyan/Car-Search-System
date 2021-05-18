@@ -1,24 +1,22 @@
 package cssystem.Controllers;
 
+import cssystem.FxmlLoader;
 import cssystem.backend.CSSystem;
 import cssystem.backend.dao.DAO;
 import cssystem.backend.dao.MainDAO;
 import cssystem.backend.models.Auto;
-import cssystem.backend.models.Color;
-import cssystem.backend.models.Description;
-import cssystem.backend.models.Type;
 import cssystem.backend.others.DataRetriever;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import cssystem.backend.others.FoundAutoRetriever;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 import java.util.*;
 
-public class SearchAutomobileController extends AbstractComboBoxController{
+public class SearchAutomobileController extends AbstractController {
 
     @FXML
     private TextField minHorsepowerField = null;
@@ -34,6 +32,12 @@ public class SearchAutomobileController extends AbstractComboBoxController{
     private TextField maxKilometersField = null;
     @FXML
     private Button searchButton = null;
+    @FXML
+    private AnchorPane loaderPane = null;
+    @FXML
+    private Label statusLabel = null;
+
+    private CSSystem csSystem = CSSystem.getInstance();
 
     private DAO<Auto, String, Integer> autoDAO = new MainDAO<>();
     private DAO<Auto, String, String> autoStringStringDAO = new MainDAO<>();
@@ -46,6 +50,11 @@ public class SearchAutomobileController extends AbstractComboBoxController{
     @Override
     public void initLoader() {
         super.initLoader();
+    }
+
+    @Override
+    public void setLoader(String file, AnchorPane pane) {
+        super.setLoader(file, pane);
     }
 
     @Override
@@ -66,8 +75,9 @@ public class SearchAutomobileController extends AbstractComboBoxController{
     public void onClickSearch(ActionEvent event) {
 
         DataRetriever dataRetriever = DataRetriever.getInstance();
+        FoundAutoRetriever foundAutoRetriever = FoundAutoRetriever.getInstance();
         dataRetriever.gatherDataFromController(this, elements);
-
+        foundAutoRetriever.getAutoList().clear();
         List<Auto> foundAutos = csSystem.searchAutos(elements);
 
         for(Auto auto: foundAutos) {
@@ -84,8 +94,14 @@ public class SearchAutomobileController extends AbstractComboBoxController{
                     " | " + model + " | " + color + " | " + "Power: " + horsePower +
                     " | " + "Price: " + price + " | " + "Kilo: " + kilometres);
         }
+            foundAutoRetriever.addAutoList(foundAutos);
 
-//        dataRetriever.addToList(foundAutos);
+        if (foundAutoRetriever.getAutoList().isEmpty()){
+            statusLabel.setVisible(true);
+        }else{
+            setLoader("outputFoundAutos", loaderPane);
+        }
+
     }
 
 
