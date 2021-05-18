@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.LoginSceneController">
    <children>
-      <GridPane id="menuPane" layoutY="50.0" prefHeight="552.0" prefWidth="132.0" styleClass="menuPane">
+      <GridPane id="menuPane" focusTraversable="true" layoutY="50.0" prefHeight="552.0" prefWidth="132.0" styleClass="menuPane">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>

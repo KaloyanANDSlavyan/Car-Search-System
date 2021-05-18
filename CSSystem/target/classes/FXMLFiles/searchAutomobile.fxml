@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="599.0" prefWidth="776.0" styleClass="loaderPane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.SearchAutomobileController">
+<AnchorPane fx:id="loaderPane" prefHeight="599.0" prefWidth="776.0" styleClass="loaderPane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.SearchAutomobileController">
    <children>
       <ComboBox fx:id="typeComboBox" layoutX="206.0" layoutY="129.0" onAction="#onClickType" prefWidth="150.0" promptText="Type" styleClass="comboBox" />
       <ComboBox fx:id="modelComboBox" layoutX="206.0" layoutY="226.0" prefWidth="150.0" promptText="Model" styleClass="comboBox" />
@@ -17,17 +17,18 @@
       <TextField fx:id="maxPriceField" layoutX="420.0" layoutY="373.0" promptText="Max price:" styleClass="loginFields" />
       <TextField fx:id="minPriceField" layoutX="205.0" layoutY="373.0" promptText="Min price:" styleClass="loginFields" />
       <TextField fx:id="minHorsepowerField" layoutX="205.0" layoutY="323.0" promptText="Min horsepower:" styleClass="loginFields" />
-      <Button fx:id="searchButton" layoutX="306.0" layoutY="523.0" mnemonicParsing="false" onAction="#onClickSearch" prefHeight="26.0" prefWidth="151.0" styleClass="loginButton" text="Search">
+      <Button fx:id="searchButton" layoutX="306.0" layoutY="541.0" mnemonicParsing="false" onAction="#onClickSearch" prefHeight="26.0" prefWidth="151.0" styleClass="loginButton" text="Search">
          <font>
             <Font name="Agency FB" size="17.0" />
          </font>
       </Button>
       <TextField fx:id="maxKilometersField" layoutX="420.0" layoutY="431.0" promptText="Max kilometers:" styleClass="loginFields" />
       <TextField fx:id="minKilometersField" layoutX="205.0" layoutY="431.0" promptText="Min kilometers:" styleClass="loginFields" />
-      <Label layoutX="248.0" layoutY="49.0" text="SEARCH AUTOMOBILE" textFill="GOLD">
+      <Label layoutX="241.0" layoutY="32.0" text="SEARCH AUTOMOBILE" textFill="GOLD">
          <font>
             <Font name="Agency FB Bold" size="43.0" />
          </font>
       </Label>
+      <Label fx:id="statusLabel" layoutX="326.0" layoutY="496.0" text="Vehicle(s) not found!" textFill="GOLD" visible="false" />
    </children>
 </AnchorPane>

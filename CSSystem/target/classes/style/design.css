@@ -1,6 +1,6 @@
 .pane {
     -fx-background-color: #9c1a11;
-    -fx-border-color: #5c100a;
+    -fx-border-color: #FFD700;
     -fx-border-width: 1px;
 }
 .exitButton{
@@ -92,6 +92,15 @@
     -fx-cursor: hand;
 }
 
+.backButton {
+    -fx-background-color: none;
+    -fx-background-image: url("../img/back.png");
+    -fx-background-size: 50px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 90%;
+    -fx-cursor: hand;
+}
+
 .comboBox{
     -fx-background-color: #5c100a;
     -fx-border-color: #FFD700;
@@ -130,4 +139,20 @@
 
 .textArea .content {
     -fx-background-color: #5c100a;
+
+}
+
+.row {
+    -fx-background-color: #9c1a11;
+    -fx-text-fill: #FFD700;
+    -fx-border-color: #FFD700;
+    -fx-border-width: 0 0 1 0;
+}
+.headerRow {
+     -fx-background-color: #5c100a;
+     -fx-border-width: 1;
+}
+
+.vbox {
+    -fx-background-color: #9c1a11;
 }

@@ -62,8 +62,6 @@ public class App extends Application {
         // Configuring the application
         Configuration configuration = Configuration.getInstance();
         configuration.configure();
-
-        DataSource dataSource = DataSource.getInstance();
         // Launching the application
         launch(args);
     }

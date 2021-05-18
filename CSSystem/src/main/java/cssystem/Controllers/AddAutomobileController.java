@@ -4,8 +4,7 @@ import cssystem.backend.CSSystem;
 import cssystem.backend.dao.DAO;
 import cssystem.backend.dao.MainDAO;
 import cssystem.backend.models.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import cssystem.backend.others.DataRetriever;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -13,7 +12,7 @@ import javafx.scene.layout.VBox;
 
 import java.util.*;
 
-public class AddAutomobileController extends AbstractComboBoxController{
+public class AddAutomobileController extends AbstractController {
     @FXML
     private TextField nameField = null;
     @FXML
@@ -32,6 +31,7 @@ public class AddAutomobileController extends AbstractComboBoxController{
     private Label failureLabel = null;
     @FXML
     private Label successLabel = null;
+    private CSSystem csSystem = CSSystem.getInstance();
 
     private DAO<Description, Long, String> descriptionDAO = new MainDAO<>();
     private DAO<Auto, String, Long> autoDAO = new MainDAO<>();
@@ -103,26 +103,11 @@ public class AddAutomobileController extends AbstractComboBoxController{
 
         }else {
             System.out.println("button add clicked");
-            String typeSelected = typeComboBox.getValue();
-            String brandSelected = brandComboBox.getValue();
-            String modelSelected = modelComboBox.getValue();
-            String colorSelected = colorComboBox.getValue();
-            String ownerName = nameField.getText().trim();
-            String phone = phoneField.getText().trim();
-            double price = Double.parseDouble(priceField.getText().trim());
-            int kilometers = Integer.parseInt(kilometersField.getText().trim());
-            int horsepower = Integer.parseInt(horsepowerField.getText().trim());
-            String description = descriptionArea.getText().trim();
 
-            info.put("type", typeSelected);
-            info.put("brand", brandSelected);
-            info.put("model", modelSelected);
-            info.put("color", colorSelected);
-            info.put("ownerName", ownerName);
-            info.put("phone", phone);
-            info.put("description", description);
+            DataRetriever dataRetriever = DataRetriever.getInstance();
+            dataRetriever.gatherDataFromController(this, info);
 
-            csSystem.saveAutoInDB(info, kilometers, horsepower, price);
+            csSystem.saveAutoInDB(info);
             successLabel.setVisible(true);
         }
 
@@ -139,4 +124,27 @@ public class AddAutomobileController extends AbstractComboBoxController{
         isComboBoxEmpty("brandComboBox");
     }
 
+    public TextField getNameField() {
+        return nameField;
+    }
+
+    public TextField getPhoneField() {
+        return phoneField;
+    }
+
+    public TextField getHorsepowerField() {
+        return horsepowerField;
+    }
+
+    public TextField getKilometersField() {
+        return kilometersField;
+    }
+
+    public TextField getPriceField() {
+        return priceField;
+    }
+
+    public TextArea getDescriptionArea() {
+        return descriptionArea;
+    }
 }

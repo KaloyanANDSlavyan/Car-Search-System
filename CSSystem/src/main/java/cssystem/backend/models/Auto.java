@@ -1,6 +1,11 @@
 package cssystem.backend.models;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -25,6 +30,7 @@ public class Auto implements Serializable {
     private int horsePower;
     private double price;
     private String details;
+    private String imgSrc;
 
     public Auto() {
     }
@@ -61,5 +67,21 @@ public class Auto implements Serializable {
 
     public String getDetails() {
         return details;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 }

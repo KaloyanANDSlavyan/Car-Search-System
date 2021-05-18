@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="900.0" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.UserMenuController">
+<AnchorPane prefHeight="650.0" prefWidth="900.0" styleClass="loaderPane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.UserMenuController">
    <children>
-      <GridPane fx:id="menuPane" layoutY="50.0" prefHeight="610.0" prefWidth="126.0" styleClass="menuPane">
+      <GridPane fx:id="menuPane" layoutX="-1.0" layoutY="50.0" prefHeight="599.0" prefWidth="126.0" styleClass="menuPane">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
@@ -28,21 +28,21 @@
             </Button>
          </children>
       </GridPane>
-      <Pane fx:id="headerPane" prefHeight="50.0" prefWidth="913.0" styleClass="headerPane">
+      <Pane fx:id="headerPane" prefHeight="50.0" prefWidth="902.0" styleClass="headerPane">
          <children>
             <Button fx:id="homeButton" layoutY="4.0" mnemonicParsing="false" onAction="#onClickHome" styleClass="homeButton" text="CSS">
                <font>
                   <Font name="Agency FB Bold" size="23.0" />
                </font>
             </Button>
-            <Button fx:id="exitButton" layoutX="869.0" layoutY="7.0" mnemonicParsing="false" onAction="#onClickExit" prefHeight="36.0" prefWidth="40.0" styleClass="exitButton" text="X">
+            <Button fx:id="exitButton" layoutX="861.0" layoutY="5.0" mnemonicParsing="false" onAction="#onClickExit" prefHeight="36.0" prefWidth="40.0" styleClass="exitButton" text="X">
                <font>
                   <Font name="Agency FB" size="19.0" />
                </font>
             </Button>
-            <Button fx:id="logoutButton" layoutX="813.0" layoutY="8.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="36.0" prefWidth="33.0" styleClass="logoutButton" />
+            <Button fx:id="logoutButton" layoutX="813.0" layoutY="5.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="36.0" prefWidth="33.0" styleClass="logoutButton" />
          </children>
       </Pane>
-      <AnchorPane fx:id="loaderPane" layoutX="126.0" layoutY="50.0" prefHeight="610.0" prefWidth="787.0" styleClass="loaderPane" />
+      <AnchorPane fx:id="loaderPane" layoutX="126.0" layoutY="51.0" prefHeight="599.0" prefWidth="776.0" styleClass="loaderPane" />
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 package cssystem.backend;
 
+import cssystem.Controllers.AbstractController;
 import cssystem.backend.dao.DAO;
 import cssystem.backend.dao.MainDAO;
 import cssystem.backend.models.*;
@@ -162,7 +163,7 @@ public class CSSystem {
         return modelStringList;
     }
 
-    public void saveAutoInDB(Map<String, String> info, int kilometers, int horsePower, double price){
+    public void saveAutoInDB(Map<String, String> info){
         Type type = typeDAO.findBy1Value(Type.class, "name", info.get("type"));
         Brand brand = brandDAO.findBy1Value(Brand.class, "name", info.get("brand"));
 
@@ -177,9 +178,107 @@ public class CSSystem {
             owner = new Owner(info.get("ownerName"), info.get("phone"));
         }
 
-        Auto auto = new Auto(owner, description1, color, kilometers, horsePower, info.get("description"), price);
+        Auto auto = new Auto(owner, description1, color, Integer.parseInt(info.get("kilometers")),
+                Integer.parseInt(info.get("horsePower")), info.get("description"),
+                Double.parseDouble(info.get("price")));
 
         autoDAO.save(auto);
+    }
+
+    public List<Auto> searchAutos(Map<String, String> elements){
+
+        int intMinHorsePower;
+        int intMaxHorsePower;
+        int intMinPrice;
+        int intMaxPrice;
+        int intMinKilos;
+        int intMaxKilos;
+
+        Set<Map.Entry<String, String>> entries = elements.entrySet();
+        List<Auto> autos = autoDAO.selectAll(Auto.class);
+        List<Auto> foundAutos = new ArrayList<>();
+
+        for(Auto auto: autos){
+
+            int need = 0;
+            int cnt = 0;
+
+            String type = auto.getDescription().getType().getName();
+            String brand = auto.getDescription().getBrand().getName();
+            String model = auto.getDescription().getModel();
+            String color = auto.getColor().getName();
+            int horsePower = auto.getHorsePower();
+            double price = auto.getPrice();
+            int kilometres = auto.getKilometres();
+
+            for(Map.Entry<String, String> element : entries){
+                if(element != null){
+                    String subElement = element.getValue();
+                    if(subElement != null && !subElement.isEmpty()) {
+                        need++;
+                        if (type.equals(subElement) || brand.equals(subElement)
+                                || model.equals(subElement) || color.equals(subElement))
+                            cnt++;
+                        switch (element.getKey()) {
+                            case "minPower": {
+                                if(!elements.get("minPower").isEmpty()) {
+                                    intMinHorsePower = Integer.parseInt(elements.get("minPower"));
+                                    if (horsePower >= intMinHorsePower)
+                                        cnt++;
+                                }
+                            }
+                            break;
+                            case "maxPower": {
+                                if(!elements.get("maxPower").isEmpty()) {
+                                    intMaxHorsePower = Integer.parseInt(elements.get("maxPower"));
+                                    if (horsePower <= intMaxHorsePower)
+                                        cnt++;
+                                }
+                            }
+                            break;
+                            case "minKilos": {
+                                if(!elements.get("minKilos").isEmpty()) {
+                                    intMinKilos = Integer.parseInt(elements.get("minKilos"));
+                                    if (kilometres >= intMinKilos)
+                                        cnt++;
+                                }
+                            }
+                            break;
+                            case "maxKilos": {
+                                if(!elements.get("maxKilos").isEmpty()) {
+                                    intMaxKilos = Integer.parseInt(elements.get("maxKilos"));
+                                    if (kilometres <= intMaxKilos)
+                                        cnt++;
+                                }
+                            }
+                            break;
+                            case "minPrice": {
+                                if(!elements.get("minPrice").isEmpty()) {
+                                    intMinPrice = Integer.parseInt(elements.get("minPrice"));
+                                    if (price >= intMinPrice)
+                                        cnt++;
+                                }
+                            }
+                            break;
+                            case "maxPrice": {
+                                if(!elements.get("maxPrice").isEmpty()) {
+                                    intMaxPrice = Integer.parseInt(elements.get("maxPrice"));
+                                    if (price <= intMaxPrice)
+                                        cnt++;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            System.out.println("Need: " + need);
+            System.out.println("Cnt: " + cnt);
+            if(need == cnt)
+                foundAutos.add(auto);
+        }
+
+        return foundAutos;
     }
 
     public List<Type> getAllTypes(){
