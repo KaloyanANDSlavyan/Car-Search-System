@@ -3,9 +3,7 @@ package cssystem.backend.models;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
@@ -14,7 +12,7 @@ public class Auto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long ID;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "owner")
     private Owner owner;
 
@@ -26,10 +24,14 @@ public class Auto implements Serializable {
     @JoinColumn(name = "color")
     private Color color;
 
+    @Min(value = 1, message = "Kilometres must be atleast 1")
     private int kilometres;
+    @Min(value = 1, message = "Horse power must be atleast 1")
     private int horsePower;
+    @Min(value = 1, message = "Price must be atleast 1")
     private double price;
     private String details;
+    @Transient
     private String imgSrc;
 
     public Auto() {

@@ -1,5 +1,7 @@
 package cssystem.backend.services;
 
+import cssystem.backend.CSSystem;
+
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -14,7 +16,7 @@ public class ValidationService {
     private static ValidationService validationService;
     private ValidatorFactory factory;
     private Validator validator;
-    private Map<String, Set<String>> cons = new LinkedHashMap<>();
+    private CSSystem csSystem = CSSystem.getInstance();
 
     public static ValidationService getInstance() {
         if (validationService == null)
@@ -38,6 +40,8 @@ public class ValidationService {
     public Map<String, Set<String>> validate(Object object) {
         Set<ConstraintViolation<Object>> constraints = validator.validate(object);
 
+        Map<String, Set<String>> cons = new LinkedHashMap<>();
+
         if (!constraints.isEmpty()) {
             cons.clear();
             for (ConstraintViolation<Object> con : constraints)
@@ -52,5 +56,31 @@ public class ValidationService {
             }
         }
         return cons;
+    }
+
+    public boolean allDataFilled(Map<String, String> data){
+        if(data.get("color") != null
+                && data.get("type") != null
+                && data.get("brand") != null
+                && data.get("model") != null
+                && !data.get("ownerName").isEmpty()
+                && !data.get("phone").isEmpty()
+                && !data.get("description").isEmpty()
+                && !data.get("price").isEmpty()
+                && !data.get("kilometers").isEmpty()
+                && !data.get("horsePower").isEmpty())
+            return true;
+
+        return false;
+    }
+
+    public boolean isDataNumeric(Map<String, String> data){
+        if(csSystem.isNumeric(data.get("kilometers"))
+                && csSystem.isNumeric(data.get("price"))
+                && csSystem.isNumeric(data.get("horsePower"))
+                && csSystem.isNumeric(data.get("phone")))
+            return true;
+
+        return false;
     }
 }

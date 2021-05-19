@@ -1,6 +1,10 @@
 package cssystem.Controllers;
 
+import cssystem.backend.CSSystem;
+import cssystem.backend.dao.DAO;
+import cssystem.backend.dao.MainDAO;
 import cssystem.backend.models.Auto;
+import cssystem.backend.models.Owner;
 import cssystem.backend.others.FoundAutoRetriever;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+import java.util.List;
 import java.util.Objects;
 
 public class AutoItemController extends AbstractController {
@@ -39,6 +44,10 @@ public class AutoItemController extends AbstractController {
     private ImageView imageView;
     private Image image;
 
+    private DAO<Auto, Long, Long> autoDAO = new MainDAO<>();
+    private DAO<Owner, Long, Long> ownerDAO = new MainDAO<>();
+    private CSSystem csSystem = CSSystem.getInstance();
+
     private FoundAutoRetriever foundAutoRetriever = FoundAutoRetriever.getInstance();
 
     public void setData(Auto auto){
@@ -66,7 +75,7 @@ public class AutoItemController extends AbstractController {
     @FXML
     void onClickDelete(ActionEvent event) {
         hbox.getChildren().clear();
-        System.out.println(auto.getDescription().getBrand().getName());
+        csSystem.deleteAutoFromDB(auto);
     }
 
     @FXML
