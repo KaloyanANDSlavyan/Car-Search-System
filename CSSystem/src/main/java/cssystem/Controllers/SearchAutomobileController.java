@@ -80,21 +80,7 @@ public class SearchAutomobileController extends AbstractController {
         foundAutoRetriever.getAutoList().clear();
         List<Auto> foundAutos = csSystem.searchAutos(elements);
 
-        for(Auto auto: foundAutos) {
-            Long id = auto.getID();
-            String type = auto.getDescription().getType().getName();
-            String brand = auto.getDescription().getBrand().getName();
-            String model = auto.getDescription().getModel();
-            String color = auto.getColor().getName();
-            int horsePower = auto.getHorsePower();
-            double price = auto.getPrice();
-            int kilometres = auto.getKilometres();
-
-            System.out.println(id + " | " + type + " | " + brand +
-                    " | " + model + " | " + color + " | " + "Power: " + horsePower +
-                    " | " + "Price: " + price + " | " + "Kilo: " + kilometres);
-        }
-            foundAutoRetriever.addAutoList(foundAutos);
+        foundAutoRetriever.addAutoList(foundAutos);
 
         if (foundAutoRetriever.getAutoList().isEmpty()){
             statusLabel.setVisible(true);

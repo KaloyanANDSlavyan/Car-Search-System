@@ -1,6 +1,8 @@
 package cssystem.backend.dao;
 
 import cssystem.backend.Configuration;
+import cssystem.backend.models.Auto;
+import cssystem.backend.models.Owner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,6 +39,12 @@ public class MainDAO<T, V, Q> implements DAO<T, V, Q> {
     public T findByID(Class<T> c, Long id){
         T object = manager.find(c, id);
         return object;
+    }
+
+    public void delete(T object){
+        manager.getTransaction().begin();
+        manager.remove(object);
+        manager.getTransaction().commit();
     }
 
     public T findBy2Values(Class<T> c, String column1, String column2, V value1, V value2) {
@@ -153,22 +161,5 @@ public class MainDAO<T, V, Q> implements DAO<T, V, Q> {
         } catch (Exception e) {
             return null;
         }
-    }
-
-    public List<T> filterBetween2IntegerCriteria(Class<T> c, String column1, String column2, Map<String, Integer> crit){
-        CriteriaBuilder cb = manager.getCriteriaBuilder();
-        CriteriaQuery<T> q = cb.createQuery(c);
-        Root<T> entity = q.from(c);
-        // Setting the query
-        q.select(entity).where(
-                cb.gt(entity.get(column1), crit.get("min1")),
-                cb.lt(entity.get(column1), crit.get("max1")),
-                cb.gt(entity.get(column2), crit.get("min2")),
-                cb.lt(entity.get(column2), crit.get("max2")));
-        // Executing the query
-        TypedQuery<T> typed = manager.createQuery(q);
-        List<T> results = typed.getResultList();
-
-        return results;
     }
 }

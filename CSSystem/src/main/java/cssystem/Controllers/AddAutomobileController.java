@@ -5,6 +5,7 @@ import cssystem.backend.dao.DAO;
 import cssystem.backend.dao.MainDAO;
 import cssystem.backend.models.*;
 import cssystem.backend.others.DataRetriever;
+import cssystem.backend.services.ValidationService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -86,29 +87,44 @@ public class AddAutomobileController extends AbstractController {
 
     public void onClickAddAuto(ActionEvent event) {
 //        consVbox.getChildren().clear();
+
         failureLabel.setVisible(false);
         successLabel.setVisible(false);
-        boolean checkComboBox = (typeComboBox.getSelectionModel().isEmpty()
-                || brandComboBox.getSelectionModel().isEmpty()
-                || modelComboBox.getSelectionModel().isEmpty()
-                || colorComboBox.getSelectionModel().isEmpty());
 
-        System.out.println(checkComboBox);
+        DataRetriever dataRetriever = DataRetriever.getInstance();
+        dataRetriever.gatherDataFromController(this, info);
 
-        if( checkComboBox || nameField.getText().isEmpty() || phoneField.getText().isEmpty()
-                || priceField.getText().isEmpty() || kilometersField.getText().isEmpty()
-                || horsepowerField.getText().isEmpty() || descriptionArea.getText().isEmpty()) {
+        ValidationService validationService = ValidationService.getInstance();
 
-                failureLabel.setVisible(true);
-
-        }else {
+        if(validationService.allDataFilled(info)){
             System.out.println("button add clicked");
 
-            DataRetriever dataRetriever = DataRetriever.getInstance();
-            dataRetriever.gatherDataFromController(this, info);
+            if (validationService.isDataNumeric(info)){
+                Auto auto = csSystem.createAuto(info);
+                Map<String, Set<String>> cons = csSystem.validateAuto(auto);
 
-            csSystem.saveAutoInDB(info);
-            successLabel.setVisible(true);
+                if (cons.isEmpty()) {
+                    csSystem.saveAutoInDB(auto);
+                    failureLabel.setVisible(false);
+                    successLabel.setVisible(true);
+                } else {
+                    System.out.println("\n\nViolations for every field\n");
+                    Set<Map.Entry<String, Set<String>>> entries = cons.entrySet();
+
+                    for (Map.Entry<String, Set<String>> entry : entries) {
+                        System.out.println(entry.getKey());
+                        for (String constraint : entry.getValue()) {
+                            System.out.println(constraint);
+                        }
+                        System.out.println("\n");
+                    }
+                }
+            } else{
+                System.out.println("Invalid data input.");
+            }
+        }else {
+            successLabel.setVisible(false);
+            failureLabel.setVisible(true);
         }
 
     }

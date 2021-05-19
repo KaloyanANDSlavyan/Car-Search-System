@@ -21,7 +21,7 @@ public class CSSystem {
     private DAO<Brand, String, Long> brandDAO = new MainDAO<>();
     private DAO<Owner, String, Long> ownerDAO = new MainDAO<>();
     private DAO<Color, String, Long> colorDAO = new MainDAO<>();
-    private DAO<Auto, String, Long> autoDAO = new MainDAO<>();
+    private DAO<Auto, Long, Long> autoDAO = new MainDAO<>();
 
     private List<Type> typeList;
     private List<Brand> brandList;
@@ -163,7 +163,7 @@ public class CSSystem {
         return modelStringList;
     }
 
-    public void saveAutoInDB(Map<String, String> info){
+    public Auto createAuto(Map<String, String> info){
         Type type = typeDAO.findBy1Value(Type.class, "name", info.get("type"));
         Brand brand = brandDAO.findBy1Value(Brand.class, "name", info.get("brand"));
 
@@ -182,7 +182,34 @@ public class CSSystem {
                 Integer.parseInt(info.get("horsePower")), info.get("description"),
                 Double.parseDouble(info.get("price")));
 
+        return auto;
+    }
+
+    public Map<String, Set<String>> validateAuto(Auto auto){
+        ValidationService validationService = ValidationService.getInstance();
+
+        Map<String, Set<String>> cons = validationService.validate(auto.getOwner());
+        Map<String, Set<String>> consAuto = validationService.validate(auto);
+
+        Set<Map.Entry<String, Set<String>>> entries = consAuto.entrySet();
+        for(Map.Entry<String, Set<String>> entry : entries)
+            cons.put(entry.getKey(), entry.getValue());
+
+        return cons;
+    }
+
+    public void saveAutoInDB(Auto auto){
         autoDAO.save(auto);
+    }
+
+    public void deleteAutoFromDB(Auto auto){
+        autoDAO.delete(auto);
+
+        List<Auto> autoList = autoDAO.findListBy1Value(Auto.class, "owner", auto.getOwner().getID());
+
+        if(autoList.isEmpty()){
+            ownerDAO.delete(auto.getOwner());
+        }
     }
 
     public List<Auto> searchAutos(Map<String, String> elements){
@@ -279,6 +306,18 @@ public class CSSystem {
         }
 
         return foundAutos;
+    }
+
+    public boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     public List<Type> getAllTypes(){
