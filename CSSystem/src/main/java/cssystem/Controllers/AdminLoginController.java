@@ -1,5 +1,6 @@
 package cssystem.Controllers;
 
+import cssystem.backend.others.FoundAutoRetriever;
 import cssystem.backend.services.AuthenticationService;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
@@ -18,6 +19,8 @@ public class AdminLoginController extends AbstractController{
     private Button loginButton = null;
     @FXML
     private Label loginFalseLabel = null;
+    private FoundAutoRetriever foundAutoRetriever = FoundAutoRetriever.getInstance();
+
 
     private static final PseudoClass fieldsCheck_pseudoClass = PseudoClass.getPseudoClass("fieldsCheck");
 
@@ -44,6 +47,7 @@ public class AdminLoginController extends AbstractController{
 
         if (success) {
             System.out.println("Successfully logged in!");
+            foundAutoRetriever.setUserIndicator(false);
             setPseudoClassState(false);
             closeStage(actionEvent, loginButton);
             loadStage("/FXMLFiles/menu.fxml");

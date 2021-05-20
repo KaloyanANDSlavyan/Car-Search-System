@@ -40,10 +40,6 @@ public abstract class AbstractController implements ControllerInterface {
     protected ComboBox<String> modelComboBox = null;
     protected boolean stateComboBox = false;
     private CSSystem csSystem;
-    @FXML
-    private AnchorPane pane = null;
-    @FXML
-    private Button button = null;
 
     @Override
     public void closeStage(ActionEvent event, Button button) {

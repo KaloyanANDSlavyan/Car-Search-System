@@ -16,9 +16,9 @@
             <Font name="Agency FB Bold" size="16.0" />
          </font></Button>
       <Label fx:id="loginFalseLabel" layoutX="235.0" layoutY="320.0" style="-fx-text-fill: red;" text="Username or password is not correct." visible="false" />
-      <Label layoutX="226.0" layoutY="40.0" style="-fx-text-fill: #FFD700;" text="ADMINISTRATOR">
+      <Label layoutX="211.0" layoutY="40.0" style="-fx-text-fill: #FFD700;" text="ADMINISTRATOR">
          <font>
-            <Font name="Agency FB" size="43.0" />
+            <Font name="Agency FB Bold" size="45.0" />
          </font>
       </Label>
    </children>

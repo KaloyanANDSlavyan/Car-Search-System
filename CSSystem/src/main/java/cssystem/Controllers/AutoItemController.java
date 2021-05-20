@@ -12,17 +12,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 
-import java.util.List;
 import java.util.Objects;
 
 public class AutoItemController extends AbstractController {
     @FXML
     private Auto auto;
-    @FXML
-    private HBox hbox;
-
     @FXML
     private Label typeLabel;
 
@@ -36,9 +31,6 @@ public class AutoItemController extends AbstractController {
     private Label priceLabel;
 
     @FXML
-    private Button viewButton;
-
-    @FXML
     private Button deleteButton;
     @FXML
     private ImageView imageView;
@@ -49,6 +41,11 @@ public class AutoItemController extends AbstractController {
     private CSSystem csSystem = CSSystem.getInstance();
 
     private FoundAutoRetriever foundAutoRetriever = FoundAutoRetriever.getInstance();
+
+    public void initialize() {
+        if (foundAutoRetriever.isUserIndicator())
+            deleteButton.setVisible(false);
+    }
 
     public void setData(Auto auto){
         this.auto = auto;
@@ -74,8 +71,9 @@ public class AutoItemController extends AbstractController {
 
     @FXML
     void onClickDelete(ActionEvent event) {
-        hbox.getChildren().clear();
         csSystem.deleteAutoFromDB(auto);
+        foundAutoRetriever.getAutoList().remove(auto);
+        setLoader("outputFoundAutos", foundAutoRetriever.getLoaderPane());
     }
 
     @FXML
