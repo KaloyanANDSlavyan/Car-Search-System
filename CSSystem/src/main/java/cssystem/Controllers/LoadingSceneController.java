@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 
 public class LoadingSceneController {
     @FXML
-    private Label test = null;
-    @FXML
     private ProgressBar progressBar = new ProgressBar();
     @FXML
     private Button exitButton = null;

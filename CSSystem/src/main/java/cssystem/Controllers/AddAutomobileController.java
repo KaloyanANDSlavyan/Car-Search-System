@@ -9,6 +9,8 @@ import cssystem.backend.services.ValidationService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 import java.util.*;
@@ -32,6 +34,8 @@ public class AddAutomobileController extends AbstractController {
     private Label failureLabel = null;
     @FXML
     private Label successLabel = null;
+    @FXML
+    private Button vboxButton = null;
     private CSSystem csSystem = CSSystem.getInstance();
 
     private DAO<Description, Long, String> descriptionDAO = new MainDAO<>();
@@ -45,6 +49,7 @@ public class AddAutomobileController extends AbstractController {
 
     public void initialize(){   // executes when scene loads
         initLoader();
+        setConsVboxSize();
     }
 
     @Override
@@ -67,29 +72,30 @@ public class AddAutomobileController extends AbstractController {
         super.isComboBoxEmpty(indicator);
     }
 
-    //    public void fillVBox(String message) {
-//        Label consLabel = new Label();
-//        consLabel.setText(message);
-//        consLabel.setStyle("-fx-text-fill: #FFD700; -fx-font-size: 11px");
-//        consVbox.getChildren().add(consLabel);
-//        System.out.println(message);
-//        failureLabel.setVisible(true);
-//    }
+        public void fillVBox(String message) {
+        Label consLabel = new Label();
+        consLabel.setText(message);
+        consLabel.setStyle("-fx-text-fill: #FFD700; -fx-font-size: 11px");
+        consVbox.getChildren().add(consLabel);
+        System.out.println(message);
+        vboxButton.setVisible(true);
+    }
 
-//    public void setConsVboxSize(){
-//        consVbox.setMinWidth(Region.USE_COMPUTED_SIZE);
-//        consVbox.setPrefWidth(Region.USE_COMPUTED_SIZE);
-//        consVbox.setMaxWidth(Region.USE_PREF_SIZE);
-//        consVbox.setMinHeight(Region.USE_COMPUTED_SIZE);
-//        consVbox.setPrefHeight(Region.USE_COMPUTED_SIZE);
-//        consVbox.setMaxHeight(Region.USE_PREF_SIZE);
-//    }
+    public void setConsVboxSize(){
+        consVbox.setMinWidth(Region.USE_COMPUTED_SIZE);
+        consVbox.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        consVbox.setMaxWidth(Region.USE_PREF_SIZE);
+        consVbox.setMinHeight(Region.USE_COMPUTED_SIZE);
+        consVbox.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        consVbox.setMaxHeight(Region.USE_PREF_SIZE);
+    }
 
     public void onClickAddAuto(ActionEvent event) {
-//        consVbox.getChildren().clear();
+        consVbox.getChildren().clear();
 
         failureLabel.setVisible(false);
         successLabel.setVisible(false);
+        vboxButton.setVisible(false);
 
         DataRetriever dataRetriever = DataRetriever.getInstance();
         dataRetriever.gatherDataFromController(this, info);
@@ -115,15 +121,21 @@ public class AddAutomobileController extends AbstractController {
                         System.out.println(entry.getKey());
                         for (String constraint : entry.getValue()) {
                             System.out.println(constraint);
+                            failureLabel.setVisible(true);
+                            failureLabel.setText("Input error encountered. Hover over '!' to see why.");
+                            fillVBox(constraint);
                         }
                         System.out.println("\n");
                     }
                 }
             } else{
-                System.out.println("Invalid data input.");
+                failureLabel.setText("Invalid data input.");
+                failureLabel.setVisible(true);
+
             }
         }else {
             successLabel.setVisible(false);
+            failureLabel.setText("Please fill all fields.");
             failureLabel.setVisible(true);
         }
 
@@ -162,5 +174,13 @@ public class AddAutomobileController extends AbstractController {
 
     public TextArea getDescriptionArea() {
         return descriptionArea;
+    }
+
+    public void showVBox(MouseEvent mouseEvent) {
+        consVbox.setVisible(true);
+    }
+
+    public void hideVBox(MouseEvent mouseEvent) {
+        consVbox.setVisible(false);
     }
 }

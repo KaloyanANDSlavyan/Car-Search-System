@@ -9,21 +9,12 @@ import java.util.Map;
 public class DataRetriever {
 
     private static DataRetriever dataRetriever;
-//    private List<Auto> autoList = new ArrayList<>();
 
     public static DataRetriever getInstance(){
         if(dataRetriever == null)
             dataRetriever = new DataRetriever();
         return dataRetriever;
     }
-
-//    public void addToList(List<Auto> autos){
-//        autoList.addAll(autos);
-//    }
-//
-//    public List<Auto> getAutoList() {
-//        return autoList;
-//    }
 
     public void gatherDataFromController(ControllerInterface controller, Map<String, String> elements){
 

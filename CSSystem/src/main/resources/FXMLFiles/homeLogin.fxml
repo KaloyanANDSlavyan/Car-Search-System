@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="552.0" prefWidth="668.0" styleClass="loaderPane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.HomeLoginController">
+<AnchorPane prefHeight="552.0" prefWidth="668.0" styleClass="loaderPane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="imageView" fitHeight="231.0" fitWidth="370.0" layoutX="143.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
          <image>

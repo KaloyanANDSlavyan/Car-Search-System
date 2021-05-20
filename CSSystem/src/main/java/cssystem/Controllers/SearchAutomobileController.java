@@ -31,8 +31,6 @@ public class SearchAutomobileController extends AbstractController {
     @FXML
     private TextField maxKilometersField = null;
     @FXML
-    private Button searchButton = null;
-    @FXML
     private AnchorPane loaderPane = null;
     @FXML
     private Label statusLabel = null;

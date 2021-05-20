@@ -1,45 +1,4 @@
-[INFO ] 2021-05-20 01:19:00.298 [Thread-2] Configuration - Successfully finished creating the database!
-[INFO ] 2021-05-20 01:19:01.161 [Thread-2] Configuration - Successfully connected to my-persistence-unit
-[INFO ] 2021-05-20 01:19:01.198 [Thread-2] Configuration - Successfully finished creating factory and manager!
-[INFO ] 2021-05-20 01:19:01.198 [Thread-2] Configuration - Successfully finished the configuration of the application!
-[INFO ] 2021-05-20 01:19:01.298 [Thread-2] MainDAO - Successfully persisted object with class name Admin
-[INFO ] 2021-05-20 01:19:01.417 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.423 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.431 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.436 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.442 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.447 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.453 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.458 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.465 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.471 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.476 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.481 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.487 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.493 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.498 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.504 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.513 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.520 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.527 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.533 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.542 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.549 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.557 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.563 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.572 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.579 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.587 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.593 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.599 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.605 [Thread-2] MainDAO - Successfully persisted object with class name Description
-[INFO ] 2021-05-20 01:19:01.614 [Thread-2] MainDAO - Successfully persisted object with class name Color
-[INFO ] 2021-05-20 01:19:01.618 [Thread-2] MainDAO - Successfully persisted object with class name Color
-[INFO ] 2021-05-20 01:19:01.623 [Thread-2] MainDAO - Successfully persisted object with class name Color
-[INFO ] 2021-05-20 01:19:01.627 [Thread-2] MainDAO - Successfully persisted object with class name Color
-[INFO ] 2021-05-20 01:19:01.630 [Thread-2] MainDAO - Successfully persisted object with class name Color
-[INFO ] 2021-05-20 01:19:01.634 [Thread-2] MainDAO - Successfully persisted object with class name Color
-[INFO ] 2021-05-20 01:19:01.637 [Thread-2] MainDAO - Successfully persisted object with class name Color
-[INFO ] 2021-05-20 01:20:31.950 [JavaFX Application Thread] MainDAO - Successfully persisted object with class name Auto
-[INFO ] 2021-05-20 01:20:48.157 [JavaFX Application Thread] MainDAO - Successfully persisted object with class name Auto
-[INFO ] 2021-05-20 01:20:49.705 [JavaFX Application Thread] MainDAO - Successfully persisted object with class name Auto
+[INFO ] 2021-05-20 15:11:41.056 [Thread-2] Configuration - Successfully finished creating the database!
+[INFO ] 2021-05-20 15:11:41.647 [Thread-2] Configuration - Successfully connected to my-persistence-unit
+[INFO ] 2021-05-20 15:11:41.688 [Thread-2] Configuration - Successfully finished creating factory and manager!
+[INFO ] 2021-05-20 15:11:41.688 [Thread-2] Configuration - Successfully finished the configuration of the application!

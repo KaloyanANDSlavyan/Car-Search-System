@@ -8,14 +8,6 @@ import javafx.scene.layout.AnchorPane;
 
 public class MenuSceneController extends AbstractController{
     @FXML
-    private Button homeButton = null;
-    @FXML
-    private Button addButton = null;
-    @FXML
-    private Button searchButton = null;
-    @FXML
-    private Button exitButton = null;
-    @FXML
     private Button logoutButton = null;
     @FXML
     private AnchorPane loaderPane = null;
