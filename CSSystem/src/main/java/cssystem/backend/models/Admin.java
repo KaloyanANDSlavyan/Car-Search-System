@@ -6,9 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
-public class Admin {
+public class Admin implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +27,6 @@ public class Admin {
             @Pattern(regexp = "(?!.*[-]$).*", message = "Username - cannot end with hyphon"),
             @Pattern(regexp = "(?!.*[-].*[-]).*", message = "Username - hyphon is allowed only once"),
             @Pattern(regexp = "(?!.*[_].*[_]).*", message = "Username - underscore is allowed only once")
-//            @Pattern(regexp = "(?!.*[-]{2,}.*).*", message = "Hyphon is allowed only once in a row"),
-//            @Pattern(regexp = "(?!.*[_]{2,}.*).*", message = "Underscore is allowed only once in a row")
     })
     private String username;
     @Size(min = 8, message = "Password - too short")
@@ -44,10 +43,6 @@ public class Admin {
     public Admin(String username, String password) {
         this.username = username;
         this.password = password;
-    }
-
-    public long getID() {
-        return ID;
     }
 
     public String getUsername() {

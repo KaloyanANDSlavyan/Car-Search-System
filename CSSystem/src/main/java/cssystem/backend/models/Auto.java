@@ -1,7 +1,5 @@
 package cssystem.backend.models;
 
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
@@ -45,10 +43,6 @@ public class Auto implements Serializable {
         this.horsePower = horsePower;
         this.price = price;
         this.details = details;
-    }
-
-    public long getID() {
-        return ID;
     }
 
     public Description getDescription() {

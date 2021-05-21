@@ -5,7 +5,7 @@ import cssystem.backend.dao.DAO;
 import cssystem.backend.dao.MainDAO;
 import cssystem.backend.models.Auto;
 import cssystem.backend.models.Owner;
-import cssystem.backend.others.FoundAutoRetriever;
+import cssystem.backend.others.DataTransfer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -40,10 +40,10 @@ public class AutoItemController extends AbstractController {
     private DAO<Owner, Long, Long> ownerDAO = new MainDAO<>();
     private CSSystem csSystem = CSSystem.getInstance();
 
-    private FoundAutoRetriever foundAutoRetriever = FoundAutoRetriever.getInstance();
+    private DataTransfer dataTransfer = DataTransfer.getInstance();
 
     public void initialize() {
-        if (foundAutoRetriever.isUserIndicator())
+        if (dataTransfer.isUserIndicator())
             deleteButton.setVisible(false);
     }
 
@@ -72,13 +72,13 @@ public class AutoItemController extends AbstractController {
     @FXML
     void onClickDelete(ActionEvent event) {
         csSystem.deleteAutoFromDB(auto);
-        foundAutoRetriever.getAutoList().remove(auto);
-        setLoader("outputFoundAutos", foundAutoRetriever.getLoaderPane());
+        dataTransfer.getAutoList().remove(auto);
+        setLoader("outputFoundAutos", dataTransfer.getLoaderPane());
     }
 
     @FXML
     void onClickView(ActionEvent event) {
-        foundAutoRetriever.setAuto(auto);
+        dataTransfer.setAuto(auto);
         loadStage("/FXMLFiles/viewAuto.fxml");
         System.out.println( auto.getDescription().getType().getName() + " " + auto.getDescription().getBrand().getName());
     }

@@ -1,6 +1,6 @@
 package cssystem.Controllers;
 
-import cssystem.backend.others.FoundAutoRetriever;
+import cssystem.backend.others.DataTransfer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 public class UserLoginController extends AbstractController{
     @FXML
     private Button enterButton = null;
-    private FoundAutoRetriever foundAutoRetriever = FoundAutoRetriever.getInstance();
+    private DataTransfer dataTransfer = DataTransfer.getInstance();
 
     @Override
     public void closeStage(ActionEvent event, Button button) {
@@ -22,7 +22,7 @@ public class UserLoginController extends AbstractController{
 
     public void onClickEnter(ActionEvent actionEvent) {
         closeStage(actionEvent, enterButton);
-        foundAutoRetriever.setUserIndicator(true);
+        dataTransfer.setUserIndicator(true);
         loadStage("/FXMLFiles/menuUser.fxml");
 
     }

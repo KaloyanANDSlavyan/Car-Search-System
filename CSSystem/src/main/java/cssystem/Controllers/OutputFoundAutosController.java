@@ -1,6 +1,6 @@
 package cssystem.Controllers;
 
-import cssystem.backend.others.FoundAutoRetriever;
+import cssystem.backend.others.DataTransfer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,18 +18,18 @@ public class OutputFoundAutosController extends AbstractController{
 
     public void initialize() {
 
-        FoundAutoRetriever foundAutoRetriever = FoundAutoRetriever.getInstance();
+        DataTransfer dataTransfer = DataTransfer.getInstance();
 
-        for(int i = 0; i<foundAutoRetriever.getAutoList().size(); i++) {
+        for(int i = 0; i< dataTransfer.getAutoList().size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/FXMLFiles/autoItem.fxml"));
 
             try {
                 HBox hBox = fxmlLoader.load();
                 AutoItemController autoItemController = fxmlLoader.getController();
-                autoItemController.setData(foundAutoRetriever.getAutoList().get(i));
+                autoItemController.setData(dataTransfer.getAutoList().get(i));
                 container.getChildren().add(hBox);
-                foundAutoRetriever.setLoaderPane(loaderPane);
+                dataTransfer.setLoaderPane(loaderPane);
             } catch (IOException e) {
                 e.printStackTrace();
             }
