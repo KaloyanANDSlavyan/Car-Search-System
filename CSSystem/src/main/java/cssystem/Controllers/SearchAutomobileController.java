@@ -1,15 +1,11 @@
 package cssystem.Controllers;
 
-import cssystem.FxmlLoader;
 import cssystem.backend.CSSystem;
-import cssystem.backend.dao.DAO;
-import cssystem.backend.dao.MainDAO;
 import cssystem.backend.models.Auto;
 import cssystem.backend.others.DataRetriever;
-import cssystem.backend.others.FoundAutoRetriever;
+import cssystem.backend.others.DataTransfer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -35,10 +31,8 @@ public class SearchAutomobileController extends AbstractController {
     @FXML
     private Label statusLabel = null;
 
-    private CSSystem csSystem = CSSystem.getInstance();
+    private final CSSystem csSystem = CSSystem.getInstance();
 
-    private DAO<Auto, String, Integer> autoDAO = new MainDAO<>();
-    private DAO<Auto, String, String> autoStringStringDAO = new MainDAO<>();
     private Map<String, String> elements = new HashMap<>();
 
     public void initialize() {
@@ -73,14 +67,14 @@ public class SearchAutomobileController extends AbstractController {
     public void onClickSearch(ActionEvent event) {
 
         DataRetriever dataRetriever = DataRetriever.getInstance();
-        FoundAutoRetriever foundAutoRetriever = FoundAutoRetriever.getInstance();
+        DataTransfer dataTransfer = DataTransfer.getInstance();
         dataRetriever.gatherDataFromController(this, elements);
-        foundAutoRetriever.getAutoList().clear();
+        dataTransfer.getAutoList().clear();
         List<Auto> foundAutos = csSystem.searchAutos(elements);
 
-        foundAutoRetriever.addAutoList(foundAutos);
+        dataTransfer.addAutoList(foundAutos);
 
-        if (foundAutoRetriever.getAutoList().isEmpty()){
+        if (dataTransfer.getAutoList().isEmpty()){
             statusLabel.setVisible(true);
         }else{
             setLoader("outputFoundAutos", loaderPane);

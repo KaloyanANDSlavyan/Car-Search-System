@@ -6,18 +6,18 @@ import javafx.scene.layout.AnchorPane;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoundAutoRetriever {       // Singleton class
-    private static FoundAutoRetriever foundAutoRetriever;
+public class DataTransfer {       // Singleton class
+    private static DataTransfer dataTransfer;
     private List<Auto> autoList = new ArrayList<>();
     private Auto auto;
     private boolean userIndicator;
     private AnchorPane loaderPane;
 
-    public static FoundAutoRetriever getInstance() {
-        if(foundAutoRetriever == null)
-            foundAutoRetriever = new FoundAutoRetriever();
+    public static DataTransfer getInstance() {
+        if(dataTransfer == null)
+            dataTransfer = new DataTransfer();
 
-        return foundAutoRetriever;
+        return dataTransfer;
     }
 
     public void addAutoList(List<Auto> autos) {

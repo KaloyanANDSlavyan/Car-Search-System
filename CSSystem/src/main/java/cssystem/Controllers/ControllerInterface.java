@@ -9,13 +9,13 @@ import java.util.List;
 import java.util.Set;
 
 public interface ControllerInterface {
-    public void initLoader();
-    public void isComboBoxEmpty(String indicator);
-    public void fillBrandComboBox(Set<String> brandNameSet);
-    public void fillModelComboBox(List<String> modelNameSet);
-    public void closeStage(ActionEvent event, Button button);
-    public  void loadStage(String file);
-    public void setLoader(String file, AnchorPane pane);
+    void initLoader();
+    void isComboBoxEmpty(String indicator);
+    void fillBrandComboBox(Set<String> brandNameSet);
+    void fillModelComboBox(List<String> modelNameSet);
+    void closeStage(ActionEvent event, Button button);
+    void loadStage(String file);
+    void setLoader(String file, AnchorPane pane);
 
     ComboBox<String> getTypeComboBox();
     ComboBox<String> getColorComboBox();

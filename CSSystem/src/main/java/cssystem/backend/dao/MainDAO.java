@@ -16,8 +16,8 @@ import java.util.Map;
 
 public class MainDAO<T, V, Q> implements DAO<T, V, Q> {
 
-    protected EntityManager manager;
-    protected final Logger LOGGER = LogManager.getLogger("eventLogger");
+    private EntityManager manager;
+    private final Logger LOGGER = LogManager.getLogger("eventLogger");
 
     public MainDAO(){
         Configuration config = Configuration.getInstance();
@@ -72,28 +72,6 @@ public class MainDAO<T, V, Q> implements DAO<T, V, Q> {
         Root<T> entity = q.from(c);
         // Setting the query
         q.select(entity).where(cb.equal(entity.get(column1), value1), cb.equal(entity.get(column2), value2), cb.equal(entity.get(column3), value3));
-        // Executing the query
-        TypedQuery<T> typed = manager.createQuery(q);
-
-        try {
-            T result = typed.getSingleResult();
-            return result;
-        } catch (Exception e){
-            return null;
-        }
-    }
-
-    public T findBy4Values(Class<T> c, String column1, String column2, String column3, String column4, V value1, V value2, Q value3, Q value4) {
-        // Configuring the query
-        CriteriaBuilder cb = manager.getCriteriaBuilder();
-        CriteriaQuery<T> q = cb.createQuery(c);
-        Root<T> entity = q.from(c);
-        // Setting the query
-        q.select(entity).where(
-                cb.equal(entity.get(column1), value1),
-                cb.equal(entity.get(column2), value2),
-                cb.equal(entity.get(column3), value3),
-                cb.equal(entity.get(column4), value4));
         // Executing the query
         TypedQuery<T> typed = manager.createQuery(q);
 

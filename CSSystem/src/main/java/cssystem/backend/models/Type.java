@@ -1,5 +1,6 @@
 package cssystem.backend.models;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;

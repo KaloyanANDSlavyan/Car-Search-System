@@ -1,7 +1,7 @@
 package cssystem.Controllers;
 
 import cssystem.backend.models.Auto;
-import cssystem.backend.others.FoundAutoRetriever;
+import cssystem.backend.others.DataTransfer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -48,11 +48,11 @@ public class ViewAutoController extends AbstractController{
     private Image image;
 
     private Auto auto;
-    private FoundAutoRetriever foundAutoRetriever = FoundAutoRetriever.getInstance();
+    private DataTransfer dataTransfer = DataTransfer.getInstance();
 
 
     public void initialize() {
-        auto = foundAutoRetriever.getAuto();
+        auto = dataTransfer.getAuto();
         image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(auto.getImgSrc())));
         imageView.setImage(image);
         typeLabel.setText(auto.getDescription().getType().getName());

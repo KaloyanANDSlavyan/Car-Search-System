@@ -36,14 +36,7 @@ public class AddAutomobileController extends AbstractController {
     private Label successLabel = null;
     @FXML
     private Button vboxButton = null;
-    private CSSystem csSystem = CSSystem.getInstance();
-
-    private DAO<Description, Long, String> descriptionDAO = new MainDAO<>();
-    private DAO<Auto, String, Long> autoDAO = new MainDAO<>();
-    private DAO<Color, String, Long> colorDAO = new MainDAO<>();
-    private DAO<Type, String, Long> typeDAO = new MainDAO<>();
-    private DAO<Brand, String, Long> brandDAO = new MainDAO<>();
-    private DAO<Owner, String, Long> ownerDAO = new MainDAO<>();
+    private final CSSystem csSystem = CSSystem.getInstance();
 
     private Map<String, String> info = new HashMap<>();
 
@@ -103,8 +96,6 @@ public class AddAutomobileController extends AbstractController {
         ValidationService validationService = ValidationService.getInstance();
 
         if(validationService.allDataFilled(info)){
-            System.out.println("button add clicked");
-
             if (validationService.isDataNumeric(info)){
                 Auto auto = csSystem.createAuto(info);
                 Map<String, Set<String>> cons = csSystem.validateAuto(auto);
@@ -114,24 +105,23 @@ public class AddAutomobileController extends AbstractController {
                     failureLabel.setVisible(false);
                     successLabel.setVisible(true);
                 } else {
-                    System.out.println("\n\nViolations for every field\n");
                     Set<Map.Entry<String, Set<String>>> entries = cons.entrySet();
-
+                    int sizeMap = cons.size();
+                    int i = 1;
                     for (Map.Entry<String, Set<String>> entry : entries) {
-                        System.out.println(entry.getKey());
+                        if(i != sizeMap)
+                            entry.getValue().add("\n");
                         for (String constraint : entry.getValue()) {
-                            System.out.println(constraint);
                             failureLabel.setVisible(true);
                             failureLabel.setText("Input error encountered. Hover over '!' to see why.");
                             fillVBox(constraint);
                         }
-                        System.out.println("\n");
+                        i++;
                     }
                 }
             } else{
                 failureLabel.setText("Invalid data input.");
                 failureLabel.setVisible(true);
-
             }
         }else {
             successLabel.setVisible(false);

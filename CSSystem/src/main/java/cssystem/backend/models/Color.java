@@ -21,14 +21,6 @@ public class Color implements Serializable {
     public Color() {
     }
 
-    public long getID() {
-        return ID;
-    }
-
-    public void setID(long ID) {
-        this.ID = ID;
-    }
-
     public String getName() {
         return name;
     }

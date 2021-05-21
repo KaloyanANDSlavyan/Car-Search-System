@@ -16,12 +16,12 @@ public class CSSystem {
 
     private static CSSystem csSystem;
     private final Logger LOGGER = LogManager.getLogger("eventLogger");
-    private DAO<Description, Long, String> descriptionDAO = new MainDAO<>();
-    private DAO<Type, String, Long> typeDAO = new MainDAO<>();
-    private DAO<Brand, String, Long> brandDAO = new MainDAO<>();
-    private DAO<Owner, String, Long> ownerDAO = new MainDAO<>();
-    private DAO<Color, String, Long> colorDAO = new MainDAO<>();
-    private DAO<Auto, Long, Long> autoDAO = new MainDAO<>();
+    private final DAO<Description, Long, String> descriptionDAO = new MainDAO<>();
+    private final DAO<Type, String, Long> typeDAO = new MainDAO<>();
+    private final DAO<Brand, String, Long> brandDAO = new MainDAO<>();
+    private final DAO<Owner, String, Long> ownerDAO = new MainDAO<>();
+    private final DAO<Color, String, Long> colorDAO = new MainDAO<>();
+    private final DAO<Auto, Long, Long> autoDAO = new MainDAO<>();
 
     private List<Type> typeList;
     private List<Brand> brandList;
