@@ -63,7 +63,7 @@ public class Configuration {
     }
     // Starting a new thread
     public void configure(){
-        new Thread(() -> {
+//        new Thread(() -> {
             try {
                 // Creating the database
                 createDB();
@@ -79,7 +79,7 @@ public class Configuration {
                 LOGGER.error("An error occurred during the configuration: " + e.getMessage());
                 e.printStackTrace();
             }
-        }).start();
+//        }).start();
     }
 
     public void closeFactory(){

@@ -77,6 +77,10 @@ public class Auto implements Serializable {
         return imgSrc;
     }
 
+    public long getID() {
+        return ID;
+    }
+
     public void setImgSrc(String imgSrc) {
         this.imgSrc = imgSrc;
     }
