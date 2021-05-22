@@ -10,10 +10,7 @@ import cssystem.backend.services.ValidationService;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 
 public class AppTest 
