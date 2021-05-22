@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.LoginSceneController">
+<AnchorPane fx:id="mainPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.Login.LoginSceneController">
    <children>
       <GridPane id="menuPane" focusTraversable="true" layoutY="50.0" prefHeight="552.0" prefWidth="132.0" styleClass="menuPane">
         <columnConstraints>

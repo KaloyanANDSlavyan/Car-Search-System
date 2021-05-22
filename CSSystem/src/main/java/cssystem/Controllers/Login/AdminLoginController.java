@@ -1,5 +1,6 @@
-package cssystem.Controllers;
+package cssystem.Controllers.Login;
 
+import cssystem.Controllers.AbstractController;
 import cssystem.backend.others.DataTransfer;
 import cssystem.backend.services.AuthenticationService;
 import javafx.css.PseudoClass;
@@ -10,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class AdminLoginController extends AbstractController{
+public class AdminLoginController extends AbstractController {
     @FXML
     private TextField usernameField = null;
     @FXML

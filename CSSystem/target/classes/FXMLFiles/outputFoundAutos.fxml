@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loaderPane" prefHeight="599.0" prefWidth="776.0" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.OutputFoundAutosController">
+<AnchorPane fx:id="loaderPane" prefHeight="599.0" prefWidth="776.0" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.Search.OutputFoundAutosController">
    <children>
       <Label fx:id="testLabel" layoutX="270.0" layoutY="22.0" text="Found Automobiles" textFill="GOLD">
          <font>

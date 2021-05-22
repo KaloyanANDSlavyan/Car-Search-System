@@ -1,11 +1,12 @@
-package cssystem.Controllers;
+package cssystem.Controllers.Login;
 
+import cssystem.Controllers.AbstractController;
 import cssystem.backend.others.DataTransfer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class UserLoginController extends AbstractController{
+public class UserLoginController extends AbstractController {
     @FXML
     private Button enterButton = null;
     private DataTransfer dataTransfer = DataTransfer.getInstance();

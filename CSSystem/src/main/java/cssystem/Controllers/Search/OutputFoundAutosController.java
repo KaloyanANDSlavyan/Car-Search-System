@@ -1,5 +1,6 @@
-package cssystem.Controllers;
+package cssystem.Controllers.Search;
 
+import cssystem.Controllers.AbstractController;
 import cssystem.backend.others.DataTransfer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-public class OutputFoundAutosController extends AbstractController{
+public class OutputFoundAutosController extends AbstractController {
     @FXML
     private VBox container = null;
     @FXML

@@ -1,20 +1,19 @@
-package cssystem.Controllers;
+package cssystem.Controllers.Admin;
 
+import cssystem.Controllers.AbstractController;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-public class UserMenuController extends AbstractController {
+public class MenuSceneController extends AbstractController {
     @FXML
     private Button logoutButton = null;
     @FXML
     private AnchorPane loaderPane = null;
-    @FXML
-    private Button exitButton = null;
 
-    public void initialize() {
-
+    public void initialize(){
         setLoader("homeMenu", loaderPane);
     }
 
@@ -33,21 +32,25 @@ public class UserMenuController extends AbstractController {
         super.setLoader(file, pane);
     }
 
-    public void onClickSearch(ActionEvent event) {
+    public void onClickAdd(ActionEvent actionEvent) {
+        setLoader("addAutomobile", loaderPane);
+    }
+
+    public void onClickSearch(ActionEvent actionEvent) {
         setLoader("searchAutomobile", loaderPane);
     }
 
-    public void onClickHome(ActionEvent event) {
+    public void onClickHome(ActionEvent actionEvent) {
         setLoader("homeMenu", loaderPane);
     }
 
-    public void onClickExit(ActionEvent event) {
-        closeStage(event, exitButton);
-        loadStage("login");
+    public void onClickExit(ActionEvent actionEvent) {
+        Platform.exit();
+        System.exit(0);
     }
 
-    public void onClickLogout(ActionEvent event) {
-        closeStage(event, logoutButton);
+    public void onClickLogout(ActionEvent actionEvent) {
+        closeStage(actionEvent, logoutButton);
         loadStage("/FXMLFiles/login.fxml");
     }
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="700.0" styleClass="pane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.ViewAutoController">
+<AnchorPane prefHeight="650.0" prefWidth="700.0" styleClass="pane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.Search.ViewAutoController">
    <children>
       <Button fx:id="exitButton" layoutX="660.0" mnemonicParsing="false" onAction="#onClickExit" styleClass="exitButton" text="X">
          <font>

@@ -1,5 +1,6 @@
-package cssystem.Controllers;
+package cssystem.Controllers.Search;
 
+import cssystem.Controllers.AbstractController;
 import cssystem.backend.models.Auto;
 import cssystem.backend.others.DataTransfer;
 import javafx.event.ActionEvent;
@@ -11,7 +12,7 @@ import javafx.scene.image.ImageView;
 
 import java.util.Objects;
 
-public class ViewAutoController extends AbstractController{
+public class ViewAutoController extends AbstractController {
     @FXML
     private Label typeLabel;
 

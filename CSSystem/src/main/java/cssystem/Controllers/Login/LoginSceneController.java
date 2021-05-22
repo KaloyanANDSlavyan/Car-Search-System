@@ -1,12 +1,13 @@
-package cssystem.Controllers;
+package cssystem.Controllers.Login;
 
+import cssystem.Controllers.AbstractController;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-public class LoginSceneController extends AbstractController{
+public class LoginSceneController extends AbstractController {
     @FXML
     private Button homeButton = null;
     @FXML

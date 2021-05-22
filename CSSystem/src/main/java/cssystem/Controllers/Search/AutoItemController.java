@@ -1,5 +1,6 @@
-package cssystem.Controllers;
+package cssystem.Controllers.Search;
 
+import cssystem.Controllers.AbstractController;
 import cssystem.backend.CSSystem;
 import cssystem.backend.dao.DAO;
 import cssystem.backend.dao.MainDAO;

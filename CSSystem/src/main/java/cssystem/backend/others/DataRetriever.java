@@ -1,8 +1,8 @@
 package cssystem.backend.others;
 
-import cssystem.Controllers.AddAutomobileController;
+import cssystem.Controllers.Admin.AddAutomobileController;
 import cssystem.Controllers.ControllerInterface;
-import cssystem.Controllers.SearchAutomobileController;
+import cssystem.Controllers.Search.SearchAutomobileController;
 
 import java.util.Map;
 

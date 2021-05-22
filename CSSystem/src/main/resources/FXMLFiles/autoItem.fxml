@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="hbox" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="762.0" spacing="10.0" styleClass="row" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.AutoItemController">
+<HBox fx:id="hbox" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="762.0" spacing="10.0" styleClass="row" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.Search.AutoItemController">
    <children>
       <ImageView fx:id="imageView" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>

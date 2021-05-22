@@ -1,5 +1,6 @@
-package cssystem.Controllers;
+package cssystem.Controllers.Search;
 
+import cssystem.Controllers.AbstractController;
 import cssystem.backend.CSSystem;
 import cssystem.backend.models.Auto;
 import cssystem.backend.others.DataRetriever;

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loaderPane" prefHeight="599.0" prefWidth="776.0" styleClass="loaderPane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.SearchAutomobileController">
+<AnchorPane fx:id="loaderPane" prefHeight="599.0" prefWidth="776.0" styleClass="loaderPane" stylesheets="@../style/design.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cssystem.Controllers.Search.SearchAutomobileController">
    <children>
       <ComboBox fx:id="typeComboBox" layoutX="206.0" layoutY="129.0" onAction="#onClickType" prefWidth="150.0" promptText="Type" styleClass="comboBox" />
       <ComboBox fx:id="modelComboBox" layoutX="206.0" layoutY="226.0" prefWidth="150.0" promptText="Model" styleClass="comboBox" />
