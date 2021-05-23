@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-[INFO ] 2021-05-22 15:03:09.471 [main] Configuration - Successfully finished creating the database!
-[INFO ] 2021-05-22 15:03:10.115 [main] Configuration - Successfully connected to my-persistence-unit
-[INFO ] 2021-05-22 15:03:10.168 [main] Configuration - Successfully finished creating factory and manager!
-[INFO ] 2021-05-22 15:03:10.168 [main] Configuration - Successfully finished the configuration of the application!
-=======
-[INFO ] 2021-05-22 15:42:48.623 [main] Configuration - Successfully finished creating the database!
-[INFO ] 2021-05-22 15:42:49.225 [main] Configuration - Successfully connected to my-persistence-unit
-[INFO ] 2021-05-22 15:42:49.268 [main] Configuration - Successfully finished creating factory and manager!
-[INFO ] 2021-05-22 15:42:49.269 [main] Configuration - Successfully finished the configuration of the application!
->>>>>>> 1cecac52299c325540b7ee2c6ce423b7a976fd6d
+[INFO ] 2021-05-23 20:59:17.739 [main] Configuration - Successfully finished creating the database!
+[INFO ] 2021-05-23 20:59:18.380 [main] Configuration - Successfully connected to my-persistence-unit
+[INFO ] 2021-05-23 20:59:18.427 [main] Configuration - Successfully finished creating factory and manager!
+[INFO ] 2021-05-23 20:59:18.428 [main] Configuration - Successfully finished the configuration of the application!
+[INFO ] 2021-05-23 21:00:39.119 [JavaFX Application Thread] MainDAO - Successfully persisted object with class name Auto
